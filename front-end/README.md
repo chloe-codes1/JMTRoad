@@ -1,17 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-before starting this project...
-
-### 'yarn add react-router-dom'
-
-### 'yarn add react-google-login'
-
-### 'yarn add react-kakao-login'
-
-### 'yarn add styled-components'
-
-### 'yarn add axios'
-
 ## Available Scripts
 
 In the project directory, you can run:

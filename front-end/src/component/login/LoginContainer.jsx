@@ -1,15 +1,15 @@
 import React from 'react';
-import Store from './LoginStorage';
+import Storage from './Storage';
 import Login from './Login';
 
 
 const LoginContainer = () => {
   return(
-    <Store.Consumer>
+    <Storage.Consumer>
       {store => (
         <Login onLogin={store.onLogin} />
       )}
-    </Store.Consumer>
+    </Storage.Consumer>
   );
 }
 

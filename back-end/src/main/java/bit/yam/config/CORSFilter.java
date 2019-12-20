@@ -24,8 +24,10 @@ public class CORSFilter implements Filter{
         		+ "Origin, Accept, Access-Control-Request-Method, Access-Control-Request-Headers");
         
         chain.doFilter(req, res);
+		
 	}
 	
 	public void init(FilterConfig filterConfig) {}
 	public void destroy() {}
+	
 }

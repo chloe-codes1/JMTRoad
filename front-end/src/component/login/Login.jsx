@@ -49,7 +49,7 @@ class Login extends Component{
     console.log('name =>', this.state.name);
     console.log('email =>', this.state.email);
 
-    //this.saveUser();
+    this.saveUser();
     this.doSignUp();
   }
 
@@ -73,9 +73,9 @@ class Login extends Component{
   saveUser = () => {
     console.log('saveUser() 호출');
     let user = {
-      email : this.state.email,
+      userID : this.state.email,
     }
-    console.log(user.email);
+    console.log(user.userID);
 
     ApiService.addUser(user).then( res => {
       this.setState({

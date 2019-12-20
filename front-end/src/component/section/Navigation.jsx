@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 const Navigation = () => {
   return(
@@ -11,4 +11,4 @@ const Navigation = () => {
   );
 }
 
-export default withRouter(Navigation);
+export default Navigation;

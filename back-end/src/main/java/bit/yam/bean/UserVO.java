@@ -1,13 +1,12 @@
-package bit.yam.model;
+package bit.yam.bean;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import lombok.Data;
 
 @Data
-public class UsersDto {
-
+public class UserVO {
+	
 	private int userNo;
 	private int level;
 	private int gender;
@@ -21,6 +20,6 @@ public class UsersDto {
 	private String phone;
 	private String profileImg;
 	private int shareLocation;
-	private String regDate;
+	private LocalDate regDate;
 	private int wtCount;
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AppRouter from './component/router/RouterComponent';
 import Header from './component/section/Header';
 import Navigation from './component/section/Navigation';
-import Store from './component/login/LoginStorage';
+import Storage from './component/login/Storage';
 
 class App extends Component {
 
@@ -29,8 +29,9 @@ class App extends Component {
     const provider = window.sessionStorage.getItem('provider');
 
     if(provider === 'Google'){
+      console.log('provider =>', provider);
       const auth2 = window.gapi.auth2.getAuthInstance();
-      console.log('auth2', auth2);
+      console.log('auth2', auth2)
       auth2.signOut().then(()=>{
         console.log('Google Logout Success');
       });
@@ -56,7 +57,7 @@ class App extends Component {
     const { logged, onLogout } = this.state;
 
     return (
-      <Store.Provider value={this.state}>
+      <Storage.Provider value={this.state}>
         <div>
           <Header logged={logged} onLogout={onLogout} />
           <Navigation />
@@ -64,7 +65,7 @@ class App extends Component {
             <AppRouter />
           </div>
         </div>
-      </Store.Provider>
+      </Storage.Provider>
     );
   }
 }

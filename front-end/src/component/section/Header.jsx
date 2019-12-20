@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 class Header extends Component{
@@ -43,4 +43,4 @@ const ShortCut = styled.div`
   background-color: #a8ff78;
 `
 
-export default withRouter(Header);
+export default Header;

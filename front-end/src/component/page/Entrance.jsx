@@ -7,8 +7,8 @@ class Entrance extends Component {
     return(
       <div>
         <img 
-          width="40%"
-          height="15%"
+          width="500px"
+          height="300px"
           src={TDE}
           alt="트둥엔터테인먼트 공식 PPT 배경화면"
         />

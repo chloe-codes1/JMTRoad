@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import Store from "./LoginStorage";
+import Storage from "./Storage";
 import LoginContainer from "./LoginContainer";
-
 
 const withLogin = (WrappedComponent) =>
 
@@ -9,14 +8,14 @@ class IsLogin extends Component {
 
   render(){
     return(
-      <Store.Consumer>
-        { store => {
-          if(store.logged === false)
+      <Storage.Consumer>
+        { storage => {
+          if(storage.logged === false)
             return <LoginContainer />;
           else 
             return <WrappedComponent />;
         }}
-      </Store.Consumer>
+      </Storage.Consumer>
     );
   }
 }
