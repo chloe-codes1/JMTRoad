@@ -6,6 +6,8 @@ Before running this project, you must type in commands below:
 
 ### 'create-react-app [project name]'
 
+Do I have to write down someting..?
+
 ### 'yarn add react-router-dom'
 
 ### 'yarn add react-google-login'
