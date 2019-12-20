@@ -103,7 +103,7 @@ class StorePageComponent extends Component {
                 <div  id="map" style={{width:"500px", float:"right"}}>
                 <p style={{ float: "right" }}>[ 음식점지도부분 ]</p>
                     <KakaoMap
-                        apiKey="725b06bbcc898a0aab70b933a5386549"
+                        apiKey=""
                         lat={34.84276621}
                         lng={127.8918157}
                     /></div>
