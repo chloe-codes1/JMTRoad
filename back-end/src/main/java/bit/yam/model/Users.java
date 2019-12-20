@@ -1,19 +1,14 @@
 package bit.yam.model;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.ColumnDefault;
 
 import lombok.Data;
 
@@ -38,7 +33,7 @@ public class Users {
 	@Column
 	private int violation;
 	
-	@Column
+	@Column(nullable = true)
 	private int reasonCode;
 	
 	@Column
@@ -63,7 +58,7 @@ public class Users {
 	private int shareLocation;
 	
 	@Column
-	private LocalDate regDate;
+	private String regDate;
 	
 	@Column
 	private int wtCount;

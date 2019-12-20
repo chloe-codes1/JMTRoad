@@ -5,5 +5,5 @@ import bit.yam.model.UsersDto;
 
 public interface UsersService {
 
-	Users save(UsersDto users);
+	Users save(UsersDto user);
 }

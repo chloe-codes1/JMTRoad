@@ -1,6 +1,7 @@
 package bit.yam.model;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import lombok.Data;
 
@@ -20,6 +21,6 @@ public class UsersDto {
 	private String phone;
 	private String profileImg;
 	private int shareLocation;
-	private LocalDate regDate;
+	private String regDate;
 	private int wtCount;
 }

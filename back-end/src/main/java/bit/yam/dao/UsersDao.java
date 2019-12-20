@@ -8,5 +8,5 @@ import bit.yam.model.Users;
 @Repository //얘 뭐야..
 public interface UsersDao extends CrudRepository<Users, Integer>{
 
-	Users findByUserID(String userID);
+	//Users findByUserID(String userID);
 }
