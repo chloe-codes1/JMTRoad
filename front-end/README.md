@@ -2,6 +2,20 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+Before running this project, you must type in commands below:
+
+### 'create-react-app [project name]'
+
+### 'yarn add react-router-dom'
+
+### 'yarn add react-google-login'
+
+### 'yarn add react-kakao-login'
+
+### 'yarn add styled-components'
+
+### 'yarn add axios'
+
 In the project directory, you can run:
 
 ### `yarn start`
