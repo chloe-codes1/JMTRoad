@@ -10,4 +10,10 @@
 		VALUES(#{userID})
 	</insert>
 
+	<select id="lookupUser" resultType="bit.yam.bean.UserVO"
+		parameterType="String">
+		SELECT * FROM users
+		WHERE userID=#{userID}
+	</select>
+
 </mapper>
