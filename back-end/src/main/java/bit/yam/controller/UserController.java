@@ -36,7 +36,7 @@ public class UserController {
 		}
 		
 		UserVO JMTUser = userMapper.lookupUser(user.getUserID());
-		//System.out.println("if문 빠져나온 JMTUser User => " + JMTUser);
+		//System.out.println("if문 빠져나온 JMTUser => " + JMTUser);
 		return JMTUser;
 	}
 }
