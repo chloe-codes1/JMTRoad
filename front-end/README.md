@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Before running this project, you must type in commands below:
 
-### 'create-react-app [project name]'
+### 'yarn add create-react-app'
 
 Do I have to write down someting..?
 

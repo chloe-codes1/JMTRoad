@@ -83,9 +83,11 @@ class Login extends Component{
       });
       console.log('this', this);
       console.log(this.state.message);
-      this.props.history.push('/'); //가입된 회원 목록 보는 페이지로 하고싶...
+      this.props.history.push('/list'); //가입된 회원 목록 보는 페이지로 하고싶...
     });
     console.log('saveUser() 완료')
+
+    //여기에서 리스트 불러오는걸 해야하나...
   }
 
   render(){

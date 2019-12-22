@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTDMapper3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bit.yam.mapper.UserMapper">
+	
+	<insert id="userInsert" parameterType="bit.yam.bean.UserVO">
+		INSERT INTO users(userID)
+		VALUES(#{userID})
+	</insert>
+
+	<select id="lookupUser" resultType="bit.yam.bean.UserVO"
+		parameterType="String">
+		SELECT * FROM users
+		WHERE userID=#{userID}
+	</select>
+
+</mapper>

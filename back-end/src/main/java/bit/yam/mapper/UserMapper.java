@@ -7,6 +7,6 @@ import bit.yam.bean.UserVO;
 @Mapper
 public interface UserMapper {
 
-	int userInsert(UserVO user);
+	void userInsert(UserVO user);
 	UserVO lookupUser(String userID);
 }
