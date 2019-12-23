@@ -94,14 +94,22 @@ class Login extends Component{
     return(
       <div>
         <GoogleLogin 
+<<<<<<< HEAD
           clientId = "구글아이디"
+=======
+          clientId = " 구글 key값 "
+>>>>>>> 74f0af6833ee08bcc4ff373513d99d6667ab39bc
           buttonText = "Google 계정으로 로그인하기"
           onSuccess = {this.responseGoogle}
           onFailure = {this.responseFail}
         />
         <br/><br/>
         <KakaoButton
+<<<<<<< HEAD
           jsKey = "카카오아이디"
+=======
+          jsKey = " 카카오 key값 "
+>>>>>>> 74f0af6833ee08bcc4ff373513d99d6667ab39bc
           buttonText = "Kakao 계정으로 로그인하기"
           onSuccess = {this.responseKakao}
           onFailure = {this.responseFail}
