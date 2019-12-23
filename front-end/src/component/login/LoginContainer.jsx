@@ -6,8 +6,8 @@ import Login from './Login';
 const LoginContainer = () => {
   return(
     <Storage.Consumer>
-      {store => (
-        <Login onLogin={store.onLogin} />
+      {Storage => (
+        <Login onLogin={Storage.onLogin} />
       )}
     </Storage.Consumer>
   );

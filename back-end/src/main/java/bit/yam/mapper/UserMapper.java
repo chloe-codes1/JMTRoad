@@ -8,5 +8,6 @@ import bit.yam.bean.UserVO;
 public interface UserMapper {
 
 	void userInsert(UserVO user);
-	UserVO lookupUser(String userID);
+	UserVO lookupUserByID(String userID);
+	UserVO lookupUserByNickname(String nickname);
 }

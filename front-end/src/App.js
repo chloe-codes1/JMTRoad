@@ -31,7 +31,7 @@ class App extends Component {
     if(provider === 'Google'){
       console.log('provider =>', provider);
       const auth2 = window.gapi.auth2.getAuthInstance();
-      console.log('auth2', auth2)
+      console.log('auth2', auth2);
       auth2.signOut().then(()=>{
         console.log('Google Logout Success');
       });

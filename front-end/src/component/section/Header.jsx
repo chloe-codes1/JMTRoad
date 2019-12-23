@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 
 class Header extends Component{
-
+  
   render(){
 
     //props 설정
@@ -17,30 +16,25 @@ class Header extends Component{
     return(
       <div>
         <h1>Header.jsx</h1>
-        {logged ?
-          <div style={styled}>
-            <ShortCut>
-              <Link to="/" onClick={onLogout}> 로그아웃 </Link>
-            </ShortCut>
-          </div> :
-          <div style={styled}>
-            <ShortCut>
-              <Link to="/login"> 로그인/회원가입 </Link>
-            </ShortCut>
-          </div>
-        }
+        <div>
+          {logged ?
+            <div style={styled}>
+              <div>
+                <Link to="/" onClick={onLogout}> 로그아웃 </Link>
+              </div>
+            </div> :
+            <div style={styled}> 
+              <div>
+                <Link to="/login"> 로그인 </Link>
+              </div>
+            </div>
+          }
+        </div>
       </div>
     );
   }
 }
 
-const ShortCut = styled.div`
-  order: 1;
-  width: 100%;
-  heigh: 20px;
-  display: inline;
-  text-align: right;
-  background-color: #a8ff78;
-`
+
 
 export default Header;

@@ -15,7 +15,7 @@ class Login extends Component{
       name: '',
       email: '',
       provider: '',
-      message: ''
+      nickname: '',
     }
   }
 
@@ -27,16 +27,13 @@ class Login extends Component{
       email: res.profileObj.email,
       provider: 'Google'
     });
-    console.log('id =>', this.state.id);
-    console.log('name =>', this.state.name);
-    console.log('email =>', this.state.email);
-    console.log('provider =>', this.state.provider);
     
     this.saveUser();
     this.doSignUp();
   }
   
   responseKakao = (res) => {
+    
     console.log('Kakao Login Success', res);
     
     this.setState({
@@ -45,9 +42,6 @@ class Login extends Component{
       email: res.profile.kakao_account.email,
       provider: 'Kakao'
     });
-    console.log('id =>', this.state.id);
-    console.log('name =>', this.state.name);
-    console.log('email =>', this.state.email);
 
     this.saveUser();
     this.doSignUp();
@@ -57,6 +51,34 @@ class Login extends Component{
     console.error('Login Failed', err);
   }
 
+  saveUser = () => {
+    console.log('saveUser() 호출');
+    let user = {
+      userID : this.state.email,
+    }
+    console.log('userID => ', user.userID);
+    
+    ApiService.addUser(user).then( res => {
+
+      let nick = res.data.nickname;
+
+      this.setState({
+        nickname: res.data.nickname
+      });
+
+      console.log('res', res);
+      console.log('res.data.nickname => ', res.data.nickname);
+      //console.log('nickname => ', this.state.nickname);
+
+      window.sessionStorage.setItem('nickname', nick);
+      console.log('nickname => ', nick);
+      this.props.history.push('/users'); //라우터를 통해 이동
+    });
+    
+    console.log('saveUser() 완료')
+    //여기에서 리스트 불러오는걸 해야하나..
+  }
+
   doSignUp = () => {
     const {id, name, email, provider} = this.state;
 
@@ -64,52 +86,26 @@ class Login extends Component{
     window.sessionStorage.setItem('name', name);
     window.sessionStorage.setItem('email', email);
     window.sessionStorage.setItem('provider', provider);
+    //window.sessionStorage.setItem('nickname', nickname);
 
     this.props.onLogin(); //이거 왜 안받아지지
     //console.log('this.props.onLogin()', this.props.onLogin());
     this.props.history.push('/users');
   }
 
-  saveUser = () => {
-    console.log('saveUser() 호출');
-    let user = {
-      userID : this.state.email,
-    }
-    console.log(user.userID);
-
-    ApiService.addUser(user).then( res => {
-      this.setState({
-        message: 'is added successfully from React.'
-      });
-      console.log('this', this);
-      console.log(this.state.message);
-      this.props.history.push('/list'); //가입된 회원 목록 보는 페이지로 하고싶...
-    });
-    console.log('saveUser() 완료')
-
-    //여기에서 리스트 불러오는걸 해야하나..
-  }
-
   render(){
+    console.log('Login Render()');
     return(
       <div>
         <GoogleLogin 
-<<<<<<< HEAD
-          clientId = "구글아이디"
-=======
-          clientId = " 구글 key값 "
->>>>>>> 74f0af6833ee08bcc4ff373513d99d6667ab39bc
+          clientId = "1006946931495-l762hspgg67tp5vrtq2q87cev7628rsk.apps.googleusercontent.com"
           buttonText = "Google 계정으로 로그인하기"
           onSuccess = {this.responseGoogle}
           onFailure = {this.responseFail}
         />
         <br/><br/>
         <KakaoButton
-<<<<<<< HEAD
-          jsKey = "카카오아이디"
-=======
-          jsKey = " 카카오 key값 "
->>>>>>> 74f0af6833ee08bcc4ff373513d99d6667ab39bc
+          jsKey = "0c66144cffc02f5a068f08dd5ec47ffe"
           buttonText = "Kakao 계정으로 로그인하기"
           onSuccess = {this.responseKakao}
           onFailure = {this.responseFail}

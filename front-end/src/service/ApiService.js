@@ -8,6 +8,10 @@ class ApiService{
     return axios.post(USER_API_BASE_URL, user);
   }
 
+  fetchUserNick(nickname){
+    return axios.get(USER_API_BASE_URL + '/' + nickname);
+  }
+
 }
 
 export default new ApiService();
