@@ -8,3 +8,8 @@ storeReview+storeinfo+Reservation(버튼)
 -(Owner) 가게등록
 - (Waiting) 원격줄서기 모달
 - (Review) 리뷰작성모달(save버튼)
+
+*1224
+-(Owner) 가게등록(완료)
+- (Waiting) 원격줄서기 모달(완료)
+- (Review) 리뷰작성모달(save버튼)(완료)
