@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import TDE from "../../image/TDEntertainment.jpg";
 
+
 class Entrance extends Component {
 
   render(){
     return(
       <div>
+        <p>Entrance Page</p>
         <img 
           width="500px"
           height="300px"

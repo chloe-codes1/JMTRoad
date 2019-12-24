@@ -3,6 +3,16 @@ import { Link } from "react-router-dom";
 
 class Header extends Component{
   
+  state = {
+    modal: false
+  }
+
+  handleOpenModal = () => {
+    this.setState({
+      modal: true
+    });
+  };
+
   render(){
 
     //props 설정
@@ -25,7 +35,11 @@ class Header extends Component{
             </div> :
             <div style={styled}> 
               <div>
-                <Link to="/login"> 로그인 </Link>
+                <Link to="/login">
+                  <button onClick={this.handleOpenModal}>
+                    로그인
+                  </button>
+                </Link>
               </div>
             </div>
           }

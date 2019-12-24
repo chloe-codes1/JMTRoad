@@ -3,6 +3,7 @@ import AppRouter from './component/router/RouterComponent';
 import Header from './component/section/Header';
 import Navigation from './component/section/Navigation';
 import Storage from './component/login/Storage';
+import Entrance from './component/page/Entrance';
 
 class App extends Component {
 
@@ -61,6 +62,9 @@ class App extends Component {
         <div>
           <Header logged={logged} onLogout={onLogout} />
           <Navigation />
+
+            <Entrance />
+          
           <div>
             <AppRouter />
           </div>
