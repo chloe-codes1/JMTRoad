@@ -117,6 +117,7 @@ class Login extends Component{
     console.log('Login Render()');
     return(
       <div>
+<<<<<<< HEAD
 
         {this.state.modal && (
           <ModalPortal>
@@ -159,6 +160,22 @@ class Login extends Component{
             </MyModal>
           </ModalPortal>
         )}
+=======
+        <GoogleLogin 
+          clientId = "구글아이디"
+          buttonText = "Google 계정으로 로그인하기"
+          onSuccess = {this.responseGoogle}
+          onFailure = {this.responseFail}
+        />
+        <br/><br/>
+        <KakaoButton
+          jsKey = "0c66144cffc02f5a068f08dd5ec47ffe"
+          buttonText = "Kakao 계정으로 로그인하기"
+          onSuccess = {this.responseKakao}
+          onFailure = {this.responseFail}
+          getProfile = "true"
+        />
+>>>>>>> ff1ff93bb692a054940c039fbe58083f54d3ba56
       </div>
     );
   }
