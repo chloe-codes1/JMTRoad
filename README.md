@@ -9,7 +9,14 @@ storeReview+storeinfo+Reservation(버튼)
 - (Waiting) 원격줄서기 모달
 - (Review) 리뷰작성모달(save버튼)
 
-*1224
+* 1224
 -(Owner) 가게등록(완료)
 - (Waiting) 원격줄서기 모달(완료)
 - (Review) 리뷰작성모달(save버튼)(완료)
+
+* 1227
+- (Owner) 가게등록(완료)
+- Tab 안에
+  (StoreReview) 리뷰작성/리뷰리스트(완료)
+  (PopStorelike) 좋아요순(아직)
+  (PopStorestar) 별점순(아직)
