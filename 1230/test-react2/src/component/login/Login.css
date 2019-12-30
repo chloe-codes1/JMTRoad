@@ -1,0 +1,31 @@
+.MyModal {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .MyModal .InnerModal {
+    background: white;
+    padding: 1rem;
+    width: 400px;
+    height: auto;
+    text-align: center;
+  }
+  
+  /*여기까지 styled-component로 옮김*/
+  /*css로 먼저 작성 후(자동완성편함) styled-component로 옮기기*/
+  
+  .header .hcontent {
+    font-size: 13px;
+  }
+  
+  hr {
+    border-top: 1px solid #bbb;
+    text-align: center;
+  }
