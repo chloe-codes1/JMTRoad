@@ -104,7 +104,7 @@ class ReservationAddUserComponent extends Component {
 
                     <div className="form-group">
                         <label>예약날짜</label>
-                        <input type="date" placeholder="예약날짜" name="redate" className="form-control" value={this.state.redate} onChange={this.onChange} />
+                        <input type="date" placeholder="예약날짜" name="regdate" className="form-control" value={this.state.regdate} onChange={this.onChange} />
                     </div>
 
                     <div className="form-group">

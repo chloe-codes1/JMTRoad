@@ -30,7 +30,7 @@ class WaitingAddUserComponent extends Component {
 
    
   saveWaiting = (e) => {
-         e.preventDefault();
+        //  e.preventDefault();
         let waiting = {
             waitNO: this.state.waitNO,
             ownerNo: this.state.ownerNo,

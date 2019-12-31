@@ -38,7 +38,7 @@ class ApiService {
     }
 
     fetchOwnerById(ownerNo) {
-        return axios.get(USER_API_BASE_URL + '/owners/' + ownerNo);
+        return axios.get('http://localhost:1217/owners/' + ownerNo);
     }
     
     fetchOwnerstore(ownerid, ownerpassword) {
@@ -47,15 +47,15 @@ class ApiService {
     
     //***** 음식점 페이지(store-info) *****
     fetchStoreinfo() {
-        return axios.get(USER_API_BASE_URL + 'users');
+        return axios.get('http://localhost:1217' + 'users');
     }
     
     StoreinfoaddUser(owner) {
-        return axios.post("" + USER_API_BASE_URL + '/owners' + owner);
+        return axios.post("" + 'http://localhost:1217' + '/owners' + owner);
     }
 
     StoreinfoeditUser(owner) {
-        return axios.put(USER_API_BASE_URL + '/owners' + '/' + owner.ownerNo, owner);
+        return axios.put('http://localhost:1217/owners/' + owner.ownerNo, owner);
     }
     //****************************** 여기까지 음식점 페이지(store-info) ***********************************
 
@@ -65,17 +65,17 @@ class ApiService {
     }
 
     deleteReview(storereviewNo) {
-        return axios.delete(USER_API_BASE_URL + '/' + storereviewNo);
+        return axios.delete('http://localhost:1217' + '/' + storereviewNo);
     }
     //****************************** 여기까지 음식점 페이지의 리뷰작성부분 ***********************************
 
     //***** 음식점 원격대기부분 **********
     fetchWaiting(waitNO) {
-        return axios.get(USER_API_BASE_URL + '/' + waitNO);
+        return axios.get('http://localhost:1217' + '/' + waitNO);
     }
 
     deletereserve(waitNO) {
-        return axios.delete(USER_API_BASE_URL + '/' + waitNO);
+        return axios.delete('http://localhost:1217' + '/' + waitNO);
     }
     
     // addUser(reserve) {
@@ -86,11 +86,11 @@ class ApiService {
 
     //***** 음식점 예약부분 *****
     fetchReservation(reservationNO) {
-        return axios.get(USER_API_BASE_URL + '/' + reservationNO);
+        return axios.get('http://localhost:1217' + '/' + reservationNO);
     }
 
     deletewaiting(reservationNO) {
-        return axios.delete(USER_API_BASE_URL + '/' + reservationNO);
+        return axios.delete('http://localhost:1217' + '/' + reservationNO);
     }
     //****************************** 여기까지 음식점 예약부분 ******************************
 

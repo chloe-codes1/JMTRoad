@@ -31,6 +31,7 @@ class EditStoreComponent extends Component {
 
   componentDidMount() {
     this.loadOwner();
+    console.log("fdsa")
     // this.handleUploadFile();
   }
 
