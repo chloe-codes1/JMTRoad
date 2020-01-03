@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTDMapper3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bit.yam.mapper.StoreReviewMapper">
+	<!-- 별 점 순 위 -->
+	<select id="starCount" resultType="int">
+		SELECT storereviewNo,
+		nickname, userNo, star, ROW_NUMBER() OVER (ORDER BY star DESC) AS RankNo FROM storereview;
+	</select>
+
+	<!-- 가게 좋아요 순 위 -->
+	<select id="storelikeCount" resultType="int">
+		SELECT storereviewNo,
+		nickname, userNo, ROW_NUMBER() OVER (ORDER BY storelike DESC) AS RankNo FROM storereview;
+	</select>
+
+	<!-- 음식점 리뷰(ownerNo에 맞추어 부르기) -->
+	<select id="storereviewOwnerNo" resultType="StoreReview">
+		select * from storereview where ownerNo=#{ownerNo};
+	</select>
+
+	<!-- Tips -->
+	<!-- Comment 수 <select id="commentCount" resultType="int"> SELECT COUNT(*) 
+		FROM healthComment </select> -->
+</mapper>

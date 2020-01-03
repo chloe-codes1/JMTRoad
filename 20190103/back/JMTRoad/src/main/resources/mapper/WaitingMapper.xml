@@ -1,0 +1,25 @@
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTDMapper3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bit.yam.mapper.WaitingMapper">
+	
+	<insert id="savewait" parameterType="Waiting">
+	    INSERT INTO waiting(adult, child, ownerNo, phone, request, userNo, username,waitingList)
+	    VALUES (#{adult}, #{child}, #{ownerNo}, #{phone}, #{request}, #{userNo}, #{username}, #{waitingList})
+	</insert>
+	
+	<select id="countwaiting" resultType="int">
+		
+		select count(*) from waiting where ownerNo=#{ownerNo} 
+		
+	</select>
+	
+	<select id="waitingList" resultType="Waiting">
+	
+		select * from waiting where ownerNo=#{ownerNo}
+	
+	</select>
+		
+</mapper>
+

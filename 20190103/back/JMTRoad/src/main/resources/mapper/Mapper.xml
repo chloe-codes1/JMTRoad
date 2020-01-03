@@ -1,0 +1,25 @@
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTDMapper3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bit.yam.mapper.OwnerMapper">
+	
+	<select id="login" resultType="OwnerStore">
+		select * from OwnerStore where ownerID =#{ownerID} and password =#{password}
+	</select>
+
+	<select id="countrequestreserve">
+		select count(*) from reserve where ownerNo=#{ownerNo} and ok=N
+	</select>
+	
+	<select id="countOkreserve">
+		select count(*) from reserve where ownerNo=#{ownerNo} and ok=O
+	</select>
+	
+		
+	<select id="countwaiting">
+		select count(*) from waiting where ownerNo=#{ownerNo}
+	</select>
+		
+</mapper>
+

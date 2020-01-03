@@ -1,0 +1,36 @@
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTDMapper3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bit.yam.mapper.ReserveMapper">
+	
+	<insert id="saveReserve" parameterType="Reservation">
+	    INSERT INTO reservation(reservationNO, adult, child, ok,ownerNo, phone, regdate, request, reservationList, retime, userNo, username)
+	    VALUES (#{reservationNO}, #{adult}, #{child}, "N", #{ownerNo}, #{phone}, #{regdate}, #{request}, #{reservationList}, #{retime}, #{userNo}, #{username})
+	</insert>
+	
+	<select id="ReserveList" resultType="Reservation">
+		select * from reservation where ownerNo=#{ownerNo} and regdate=#{regdate} and ok="o" order by retime
+	</select>
+
+	<select id="countreservation" resultType="int">
+		select count(*) from reservation where ownerNo=#{ownerNo} and regdate=#{regdate} and ok="o"
+	</select>
+	
+	<select id="requestreservation" resultType="Reservation">
+		select * from reservation where ownerNo=#{ownerNo} and ok="N" order by reservationNo
+	</select>
+	
+	<select id="countrequestreservation" resultType="int">
+		select count(*) from reservation where ownerNo=#{ownerNo} and ok="n"
+	</select>
+	
+	<update id="rejectreservation">
+		update reservation set ok="X" where reservationNO=#{reservationNO}
+	</update>
+	
+	<update id="acceptreservation">
+		update reservation set ok="O" where reservationNO=#{reservationNO}
+	</update>
+</mapper>
+
