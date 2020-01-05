@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cf322787f4669732502374b0e6ffc647&libraries=services"></script>
+
+<title>Map Test</title>
+</head>
+<body>
+
+<div id="map" style="width:500px;height:400px;"></div>
+
+
+<script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(37.4994764, 127.024962),
+			level: 3
+		};
+
+		var map = new kakao.maps.Map(container, options);
+	
+	</script>
+
+</body>
+</html>

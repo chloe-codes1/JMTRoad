@@ -1,0 +1,78 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>T-map API V2 Test 01</title>
+
+	<!-- JQuery 쓸꺼얌 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- Javascript 호출 : 지도보기 API 1회 사용됨 -->
+	<script
+		src="https://apis.openapi.sk.com/tmap/jsv2?version=1&format=javascript&appkey=84431dd5-3d00-402c-8f27-83feafcd1ff8"></script>
+</head>
+
+<body>
+	<h3>Line & Polygon 그리기 Sample</h3>
+	<div id="map_div"></div>
+
+	<script type="text/javascript">
+
+		$(function () {
+			initTmap();
+		});
+
+		function setVariables() {
+			zoom = 19;
+			// -> zoom level 설정 0~19 까지 가능하다고 함!
+		}
+
+		function initTmap() {
+			// map 생성
+			var map = new Tmapv2.Map("map_div",
+				{
+					center: new Tmapv2.LatLng(37.566481622437934, 126.98502302169841), // 지도 초기 좌표
+					width: "890px",
+					height: "400px",
+					zoom: 17
+				});
+
+			// marker 생성
+			var marker = new Tmapv2.Marker({
+				position: new Tmapv2.LatLng(37.566481622437934, 126.98502302169841),
+				map: map
+			});
+
+			// line 그리기
+			// -> 최적 경로 그릴 때 활용하기
+			var polyline = new Tmapv2.Polyline({
+				path: [new Tmapv2.LatLng(37.566381, 126.985123),
+				new Tmapv2.LatLng(37.566581, 126.985123),
+				new Tmapv2.LatLng(37.566381, 126.985273),
+				new Tmapv2.LatLng(37.566581, 126.985423),
+				new Tmapv2.LatLng(37.566381, 126.985423)],
+				strokeColor: "#dd00dd",
+				strokeWeight: 6,
+				map: map
+
+			});
+
+			// 다각형 그리기
+			// -> 요것도 최적경로 그릴 때 쓰면 좋을 듯
+			var polygon = new Tmapv2.Polygon({
+				paths: [new Tmapv2.LatLng(37.566610, 126.985666),
+				new Tmapv2.LatLng(37.566595, 126.985985),
+				new Tmapv2.LatLng(37.566512, 126.986071),
+				new Tmapv2.LatLng(37.566397, 126.985894),
+				new Tmapv2.LatLng(37.566395, 126.985664)],
+				fillColor: "pink",
+				draggable: true,
+				map: map
+			});
+
+
+		}
+
+	</script>
+</body>
+
+</html>
