@@ -4,9 +4,9 @@ import Aside from "../aside/Aside";
 import Footer from "../footer/Footer";
 import InitiateChat from "../initiate/InitiateChat";
 import Menu from "../menu-app-bar/MenuAppBar";
-// Default user image
 import userImage from "../../../userImage.png";
 import "./ChatMessageBox.scss";
+import Time from 'react-time-format'
 
 
 
@@ -87,7 +87,7 @@ class ChatMessageBox extends Component {
 
     if (message.type === "JOIN") {
       this.state.roomNotification.push({
-        sender: message.sender + " 님이 로그인 하셨습니다.",
+        sender: message.sender,
         status: "online",
         dateTime: message.dateTime
       });
@@ -97,9 +97,9 @@ class ChatMessageBox extends Component {
       });
     } else if (message.type === "LEAVE") {
       this.state.roomNotification.map((notification, i) => {
-        if (notification.sender === message.sender + " 님이 로그인 하셨습니다.") {
+        if (notification.sender === message.sender) {
           notification.status = "offline";
-          notification.sender = message.sender + " 님이 로그아웃 하셨습니다.";
+          notification.sender = message.sender;
           notification.dateTime = message.dateTime;
         }
       });
@@ -109,7 +109,7 @@ class ChatMessageBox extends Component {
       });
     } else if (message.type === "TYPING") {
       this.state.roomNotification.map((notification, i) => {
-        if (notification.sender === message.sender + " 님이 로그인 하셨습니다.") {
+        if (notification.sender === message.sender) {
           if (message.content) notification.status = "typing...";
           else notification.status = "online";
         }
@@ -119,7 +119,7 @@ class ChatMessageBox extends Component {
       });
     } else if (message.type === "CHAT") {
       this.state.roomNotification.map((notification, i) => {
-        if (notification.sender === message.sender + " 님이 로그인 하셨습니다.") {
+        if (notification.sender === message.sender) {
           notification.status = "online";
         }
       });
@@ -174,8 +174,8 @@ class ChatMessageBox extends Component {
   }
   render() {
     return (
-      <div /* className="ChatModal" */>
-        <div /* className="chat-content" */>
+      <div >
+        <div>
         {/* 접속 되어 있으면 render */}
         {this.state.channelConnected ? (
           <div>
@@ -204,38 +204,38 @@ class ChatMessageBox extends Component {
                     <li className="you" key={i}>
                       <div className="entity">
                         <h2>
+                        
+                          <span className="sender">   
                           <img
                             src={userImage}
                             alt="Default-User"
                             className="avatar"
                           />
-                          <span> </span>
-                          <span className="sender"> {msg.sender} ~ (You)</span>
+                            <span> </span>
+                          {msg.sender}(You)</span>
                         </h2>
                         <span> </span>
                       </div>
-                      <div className="triangle"></div>
-                      <div className="message">{msg.message}</div>
-                      <div>
-                        <h3>{msg.dateTime}</h3>
+                      <div className="message">{msg.message} </div>
+                      <div className="time">
+                        <h3> <Time value={msg.dateTime} format="YYYY/MM/DD hh:mm:ss" /> </h3>
                       </div>
                     </li>
                   ) : (
                     <li className="others">
                       <div className="entity">
-                        <span> </span>
+                        <span>  </span>
                         <img
                           src={userImage}
                           alt="Default-User"
                           className="avatar"
                         />
                         <span> </span>
-                        <span className="sender">{msg.sender}</span>
+                        <span className="sender">{msg.sender} </span>
                       </div>
-                      <div className="triangle"></div>
-                      <div className="message">{msg.message}</div>
+                      <div className="message">{msg.message} </div>
                       <div>
-                        <h3>{msg.dateTime}</h3>
+                        <h3> <Time value={msg.dateTime} format="YYYY/MM/DD hh:mm:ss" /></h3>
                       </div>
                     </li>
                   )

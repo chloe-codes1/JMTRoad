@@ -1083,7 +1083,7 @@ class Project extends React.Component {
                       </Route>
 
                       <div className="ellipsis">
-                        <i class="fas fa-ellipsis-v" />
+                        <i className="fas fa-ellipsis-v" />
                       </div>
                     </div>
                   ))}

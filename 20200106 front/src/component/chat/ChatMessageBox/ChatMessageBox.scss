@@ -12,7 +12,7 @@ body{
 
 .vr {
 	width: 1px;
-    background-color: black;
+    background-color: gray;
     position: absolute;
     top: 35px;
     bottom: 0;
@@ -66,11 +66,12 @@ h2,h3,h5,h6{
 	left: 264px; 
     padding-top: -33px;
     margin-top: -575px;
-    overflow-y: scroll;
+	overflow-y: scroll;
+	overflow-x: scroll;
     position: relative;
-    height: 556px;
-    max-height: 495px;
-    width: 1262px ;
+    height: 400px;
+    max-height: 450px;
+	width: 1000px ;
 	background-color: white;
 	list-style-type: none;
 }
@@ -89,9 +90,11 @@ h2,h3,h5,h6{
 }
 #chat .entity{
 	margin-bottom:5px;
+	
 }
 #chat .message{
 	padding:0px 25px 5px 30px;
+	margin: 5px;
 	color:#fff;
 	line-height:25px;
 	max-width:90%;
@@ -100,19 +103,23 @@ h2,h3,h5,h6{
 	border-radius:5px;
 	word-wrap: break-word;
 }
+
+
 #chat .others{
     color: #33DFF1;
     font-size: 20px;
-    padding: 20px 4px 20px 490px;
+	padding: 20px 4px 20px 4px;
 }
 #chat .you .message{
 	background-color:#3f51b5;
+	
 }
 #chat .you .sender{
 	color: #3f51b5;
     font-size: 20px;
-    font-family: -webkit-body;
-    padding: 20px 4px 20px 4px;
+	font-family: -webkit-body;
+	padding: 20px 4px 20px 490px;
+   
 }
 #chat .others .sender{
 	color: #6fbced;
@@ -140,6 +147,7 @@ h2,h3,h5,h6{
 
 #userImage{
 	height: 48px;
+	
 }
 
 #today{
@@ -184,7 +192,7 @@ h2,h3,h5,h6{
 }
 #usernameDialogNotifications{
 	padding:0px 25px 5px 0px;
-	color:black;
+	color:gray;
 	max-width:70%;
 	display:inline-block;
 	text-align:left;

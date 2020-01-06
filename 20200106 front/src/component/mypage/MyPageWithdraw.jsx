@@ -1,8 +1,8 @@
-import React from "react";
-import axios from "axios";
-import withLogin from "../login/LoginHOC";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import axios from "axios";
+import React from "react";
+import { withRouter } from "react-router-dom";
 
 class MyPageWithdraw extends React.Component {
   constructor(props) {
@@ -12,6 +12,12 @@ class MyPageWithdraw extends React.Component {
       isMounted: false
     };
   }
+
+  close = () =>{
+    this.props.onClose();
+    this.props.history.push("/mypage");
+  }
+
 
   componentDidMount() {
     this.setState = {
@@ -48,7 +54,7 @@ class MyPageWithdraw extends React.Component {
     return (
       <div className="MyModal">
         <div className="content">
-          <button onClick={this.props.onClose} style={{ float: "right" }}>
+          <button onClick={this.close} style={{ float: "right" }}>
             {" "}
             X{" "}
           </button>
@@ -83,4 +89,4 @@ const style = {
   justifyContent: "center"
 };
 
-export default withLogin(MyPageWithdraw);
+export default withRouter(MyPageWithdraw);

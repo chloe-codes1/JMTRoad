@@ -137,7 +137,7 @@ export default class MenuAppBar extends React.Component {
 
     return (
       <div >
-        <AppBar position="static" style={{ background: 'black' }}>
+        <AppBar position="static" style={{ background: 'gray' }}>
           <Toolbar>
             <IconButton className="" color="inherit" aria-label="Menu">
               <MenuIcon onClick={this.handleClick} />
@@ -162,7 +162,7 @@ export default class MenuAppBar extends React.Component {
               <a href="#"> <BellIcon active={this.props.bellRing} animate={this.props.bellRing} color="white" width="25px" /></a>
             </Badge>
             <Badge className="badgeMessage" badgeContent={this.state.privateMessages != null ? this.state.privateMessages.length : 0} color="secondary" onClick={this.handleOpenPrivateMessages}>
-              <a href="#"><img src={msgImage} alt="Private messages" className="avatar" style={{ width: '48px', height: '46px' }} /></a>
+              <a href="#"><img src={msgImage} alt="Private messages" className="avatar" style={{ width: '40px', height: '40px', padding:'7px', background: 'white'}} /></a>
             </Badge>
 
             <Notifications open={this.state.openNotifications} handleClose={this.handleCloseNotifications}
@@ -176,10 +176,7 @@ export default class MenuAppBar extends React.Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
-          <MenuItem onClick={this.handleClose}>My account</MenuItem>
-          <MenuItem onClick={this.handleClose}>Broadcast </MenuItem>
-          <MenuItem onClick={this.handleClose}>Starred </MenuItem>
-          <MenuItem onClick={this.handleLogOut}>Logout</MenuItem>
+          <MenuItem onClick={this.handleLogOut}>채팅 나가기</MenuItem>
         </Menu>
       </div>
     );

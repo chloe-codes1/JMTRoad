@@ -66,10 +66,9 @@ export default class Aside extends Component {
     render() {
         return (
             <aside>
-                {/* <div className="vr"></div> */}
                 <TextField
                     id="search full-width"
-                    label="Search members"
+                    label="대화 상대를 검색하세요!"
                     type="search"
                     onChange={this.handleSearch}
                     margin="normal"

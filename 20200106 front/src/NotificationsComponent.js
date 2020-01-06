@@ -35,7 +35,7 @@ export default class NotificationsComponent extends Component {
                         //Show user's notifications
                         <DialogContentText>
                             <div>
-                                <h3>Total messages in the room: {this.props.roomMessages.length}</h3>
+                                <h3>총 알림: {this.props.roomMessages.length}</h3>
                             </div>
                             <br />
                             {this.props.notifications.map((notification, i) =>

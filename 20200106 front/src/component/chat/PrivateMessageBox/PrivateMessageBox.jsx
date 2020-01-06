@@ -94,7 +94,7 @@ class PrivateMessageBox extends Component {
         autoScrollBodyContent={true}
 
       >
-        <DialogTitle id="responsive-dialog-title">{"Send Private Message"}
+        <DialogTitle id="responsive-dialog-title">{"비밀 메시지 보내기"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -102,8 +102,10 @@ class PrivateMessageBox extends Component {
             <div id="usernameDialogNotifications">
               <h5>{this.props.otherUser}</h5>
             </div>
+            <br/>
             <div>
-              <div><h5>Sent messages by You to {this.props.otherUser}</h5></div>
+              <div>
+                <br/><h5>{this.props.otherUser}님에게 보낸 비밀 메시지 </h5></div>
               {this.state.broadcastMessage.map((msg, i) =>
                 <div>{this.props.user === msg.sender ? msg.message : ""}</div>
 

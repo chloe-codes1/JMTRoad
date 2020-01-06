@@ -36,11 +36,11 @@ export default class Footer extends Component {
                 <div className="footerComponent-private">
                 <TextField
                     id="msg"
-                    label="Type your message here..."
-                    placeholder="Press enter to send message"
+                    label="이곳에 메시지를 입력하세요"
+                    placeholder="Enter를 누르면 전송됩니다"
                     onChange={this.handleTyping}
                     margin="normal"
-                    style ={{width: "600px"}}
+                    style ={{width: "1000px", marginLeft: "80px"}}
                     value={this.state.chatMessage}
                     onKeyPress={event => {
                         if (event.key === 'Enter') {
@@ -51,8 +51,8 @@ export default class Footer extends Component {
             </div>:<div className="footerComponent">
                 <TextField
                     id="msg"
-                    label="Type your message here..."
-                    placeholder="Press enter to send message"
+                    label="이곳에 메시지를 입력하세요"
+                    placeholder="Enter를 누르면 전송됩니다"
                     onChange={this.handleTyping}
                     margin="normal"
                     style ={{width: "600px"}}

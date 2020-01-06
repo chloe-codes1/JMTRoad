@@ -216,7 +216,7 @@ class Maps extends React.Component {
               coords &&
               new kakao.maps.InfoWindow({
                 content:
-                  '<div class="infowindow"><p class="storeName">'+storeName+'</p>'
+                  '<div class="infowindow" style="height: 30px; overflow: auto;"><p class="storeName">'+storeName+'</p>'
                   + '<p class="details">'+ store.address +'</p>'
                   + '<p class="details">메인메뉴: ' + store.mainMenu + '</p></div>'
               });
