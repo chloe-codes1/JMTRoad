@@ -1,19 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-	PUBLIC "-//mybatis.org//DTDMapper3.0//EN"
-	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  PUBLIC "-//mybatis.org//DTDMapper3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="bit.yam.mapper.UserMapper">
+<mapper namespace="bit.yam.service.UserMapper">
 	
+<update id="updateUser" parameterType="UserVO">
+	UPDATE Users SET nickname = #{nickname}, phone = #{phone}, birthday = #{birthday}, gender = #{gender}, shareLocation = #{shareLocation}
+	WHERE userID = #{userID}
+</update>	
+	
+<update id="withdrawUser" parameterType="int">
+	UPDATE Users SET userStatus = 13 WHERE userNo = #{userNo}
+</update>	
+	
+<update id="uploadProfileImage" parameterType="map">
+	UPDATE Users SET profileImg = #{fileUrl} WHERE userNo = #{userNo}
+</update>
+
+<select id="getLikedStoreList" parameterType="int" resultType="OwnerVO">
+	SELECT * FROM ownerstore WHERE ownerNo IN (SELECT ownerNo FROM StoreLike WHERE userNo = #{userNo})
+</select>
+
+<select id="followingList" parameterType="int" resultType="UserVO">
+	SELECT * FROM  Users WHERE userNo IN (SELECT targetNo FROM UserFollow WHERE userNo = #{userNo})
+</select>
+
+<select id="followerList" parameterType="int" resultType="UserVO">
+	SELECT * FROM Users WHERE userNo IN (SELECT userNo FROM UserFollow WHERE targetNo = #{userNo})
+</select>
+
+<insert id="follow" parameterType="int">
+	INSERT INTO UserFollow(userNo, targetNo) VALUES(#{userNo}, #{targetNo})
+</insert>
+
+<delete id="unFollow" parameterType="int">
+	DELETE FROM UserFollow WHERE userNo = #{userNo} AND targetNo = #{targetNo}
+</delete>
+
+<!-- 은석오빠 -->
 	<insert id="userInsert" parameterType="bit.yam.bean.UserVO">
-		INSERT INTO users(userID)
+		INSERT INTO Users(userID)
 		VALUES(#{userID})
 	</insert>
 
-	<select id="lookupUser" resultType="bit.yam.bean.UserVO"
+	<select id="lookupUserByID" resultType="bit.yam.bean.UserVO"
 		parameterType="String">
-		SELECT * FROM users
+		SELECT * FROM Users
 		WHERE userID=#{userID}
+	</select>
+
+	<select id="lookupUserByNickname" resultType="bit.yam.bean.UserVO"
+		parameterType="String">
+		SELECT * FROM Users
+		WHERE nickname=#{nickname}
+	</select>
+
+		<select id="lookupUserByUserNo" resultType="UserVO"
+		parameterType="int">
+		SELECT * FROM Users
+		WHERE userNo=#{userNo}
 	</select>
 
 </mapper>

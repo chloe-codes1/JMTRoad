@@ -1,0 +1,29 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script
+	src="https://apis.openapi.sk.com/tmap/js?version=1&format=javascript&appKey=84431dd5-3d00-402c-8f27-83feafcd1ff8"></script>
+
+
+<title>T-map API Test 01</title>
+</head>
+
+<body onload="initTmap()">
+	<div id="map_div"></div>
+
+</body>
+
+<script type="text/javascript">
+	function initTmap() {
+		var map = new Tmap.Map({
+			div : 'map_div',
+			width : "934px",
+			height : "452px",
+		});
+		map.setCenter(new Tmap.LonLat("126.986072", "37.570028").transform(
+				"EPSG:4326", "EPSG:3857"), 15);
+	}
+</script>
+
+</html>
