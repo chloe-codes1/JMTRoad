@@ -1,0 +1,45 @@
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTDMapper3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bit.yam.service.OwnerMapper">
+	
+	
+	<insert id="reg" parameterType="bit.yam.bean.OwnerStore">
+		insert into ownerstore (ownerID,password,name,brNo) values(#{ownerID},#{password},#{name},#{brNo})
+	</insert>
+	
+	<update id="update" parameterType="bit.yam.bean.OwnerStore">
+		update ownerstore set storeName=#{storeName},address=#{address},tel=#{tel},menuImg=#{menuImg},
+		cuisine=#{cuisine},mainMenu=#{mainMenu},openingHours=#{openingHours} 
+		where ownerNo=#{ownerNo}
+	</update>
+	
+	<select id="storeList" resultType="bit.yam.bean.OwnerStore">
+		SELECT * FROM codes , ownerstore  where codes.codeNo = ownerstore.cuisine
+	</select>
+	
+	
+	<select id="ownerselect" parameterType="int" resultType="bit.yam.bean.OwnerStore">
+		SELECT * FROM codes , ownerstore where codes.codeNo = ownerstore.cuisine and ownerNo=#{ownerNo};
+	</select>
+	
+	<select id="login"  resultType="bit.yam.bean.OwnerStore">
+		select * from OwnerStore where ownerID =#{ownerID} and password =#{password}
+	</select>
+
+	<select id="countrequestreserve">
+		select count(*) from reserve where ownerNo=#{ownerNo} and ok=N
+	</select>
+	
+	<select id="countOkreserve">
+		select count(*) from reserve where ownerNo=#{ownerNo} and ok=O
+	</select>
+		
+	<select id="countwaiting">
+		select count(*) from waiting where ownerNo=#{ownerNo}
+	</select>
+	
+	
+</mapper>
+
