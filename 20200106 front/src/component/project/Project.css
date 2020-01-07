@@ -93,9 +93,10 @@
 }
 
 .ellipsis{
-  text-align: center;
   display: block;
+  width: 50px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .optimalPath{
@@ -106,6 +107,17 @@
 
 .btnOptimalPath{
   cursor: pointer;
+}
+
+.hr2{
+  margin-bottom: 0px;
+}
+
+.smc{
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  width: 150px;
 }
 
 .btnNavi{
@@ -132,14 +144,10 @@
   float: right;
   width: 68%; /*max:84, min:68*/
   height: 97%;
-  
   background-color: palevioletred;
-  position: absolute; /* 이거때문에 css 깨져요...어떡해.. */
   left: 250px; 
   z-index: 1;
 }
-
-
 
 .searchingArea {
   height: 100px;
@@ -152,7 +160,8 @@
   text-align: center;
   z-index: 2;
   position: absolute;
-  top: 50px;
+  top: 180px;
+  right: 120px;
   background: white;
   opacity: 0.87;
 }
@@ -168,7 +177,8 @@
   text-align: center;
   z-index: 2;
   position: absolute;
-  top: 50px;
+  top: 180px;
+  right: 120px;
   background: white;
   opacity: 0.87;
 }

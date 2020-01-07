@@ -862,7 +862,7 @@ class Project extends React.Component {
       for (var i = 0; i < storeResult.length; i++) {
         project.projectDetail.push({
           routeNo: ++rNo,
-          ownerno: storeResult[i].ownerNo
+          ownerNo: storeResult[i].ownerNo
         });
       }
       project.projectDetail = project.projectDetail.filter(
@@ -986,9 +986,10 @@ class Project extends React.Component {
                 다시 선택하기
               </Button>
             </div>
-            <hr />
+            <hr className="hr2" />
 
             <div className="wow">
+              <div className="smc">여기에 경로가 생성됩니다</div>
               {/*this.state.selectedStores*/}
               <br />
               {showResult && (
@@ -1005,7 +1006,7 @@ class Project extends React.Component {
                     >
                       <Route>
                         <RouteEateryInfo>
-                          <p> 가게 이름 : {row.storeName}</p>
+                          <p>{row.storeName}</p>
 
                           {/*
                       <p> OwnerNo : {row.ownerNo}</p>
@@ -1018,29 +1019,7 @@ class Project extends React.Component {
                         </RouteEateryInfo>
 
                         <div className="routeDetailInfo">
-                          <Label time for="time">
-                            시간:
-                          </Label>
-                          <input
-                            type="text"
-                            id="time"
-                            name="time"
-                            className="time"
-                            value={this.state.time}
-                            onChange={this.onChange}
-                          />
-                          <Label expense for="expense">
-                            예산:
-                          </Label>
-                          <input
-                            type="text"
-                            id="expense"
-                            name="expense"
-                            className="expense"
-                            value={this.state.expense}
-                            onChange={this.onChange}
-                          />
-                          &nbsp;원
+                         
                         </div>
 
                         <div className="btnNavi">
@@ -1050,18 +1029,18 @@ class Project extends React.Component {
                               this.setStartPoint(row.ownerNo, index)
                             }
                             variant="info"
-                            style={{ fontSize: "10pt", padding: "2px, 7px" }}
+                            style={{ fontSize: "10pt", padding: "2px, 3px" }}
                           >
-                            출발지로 설정하기
+                            출발
                           </BtnSP>
 
                           <BtnEP
                             id={index + 10}
                             onClick={() => this.setEndPoint(row.ownerNo, index)}
                             variant="warning"
-                            style={{ fontSize: "10pt", padding: "2px, 7px" }}
+                            style={{ fontSize: "10pt", padding: "2px, 3px" }}
                           >
-                            도착지로 설정하기
+                            도착
                           </BtnEP>
                           <Button
                             id={index + 1000}
@@ -1083,7 +1062,7 @@ class Project extends React.Component {
                       </Route>
 
                       <div className="ellipsis">
-                        <i className="fas fa-ellipsis-v" />
+                        <i class="fas fa-ellipsis-v" />
                       </div>
                     </div>
                   ))}
@@ -1184,11 +1163,12 @@ const RouteEateryInfo = styled.div`
   text-align: center;
   margin: 10px auto 0 auto;
   display: block;
-  border: 1px solid red;
+  border: 1px solid black;
   border-radius: 10px;
   width: 180px;
-  height: 100px;
-  background-color: gray;
+  height: 50px;
+  line-height: 50px;
+  background-color: #e2e2e2;
 `;
 
 const Button1 = styled.button`
@@ -1273,7 +1253,7 @@ const BtnRouteDelete = styled.button`
   float: right;
   position: relative;
   right: 15px;
-  top: -90px;
+  top: -50px;
   font-size: 0.9em;
   cursor: pointer;
   background-color: white;

@@ -7,7 +7,7 @@
   width: 250px;
   border-right: 1px solid black;
   background-color: cornflowerblue;
-  z-index: 2;
+  z-index: 3;
 }
 
 .sectionHeader{
@@ -44,5 +44,5 @@
   border: none;
   cursor: pointer;
 
-  z-index: 2;
+  z-index: 3;
 }
