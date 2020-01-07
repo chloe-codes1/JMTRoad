@@ -10,7 +10,7 @@
   display: inline-block;
   width: 40%;
   border-radius: 3px;
-  border: 2px solid palevioletred;
+  border: 2px solid #7f46a6;
   margin: 1em 1em;
 }
 
@@ -144,7 +144,7 @@
   float: right;
   width: 68%; /*max:84, min:68*/
   height: 97%;
-  background-color: palevioletred;
+  background-color: 1374f2;
   left: 250px; 
   z-index: 1;
 }

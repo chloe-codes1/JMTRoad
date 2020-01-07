@@ -118,7 +118,7 @@ class Login extends Component{
               <InnerModal>
                 <div className="header">
                   <h2><b>맛집의민족</b></h2>
-                  <p className="hcontent">다양한 맛집 프로젝트를 만들고 공유하세요!</p>
+                  <p className="expl">다양한 맛집 프로젝트를 만들고 저장하세요!</p>
                 </div>
                 <div className="content">
                   <h3 className="h3"><b>일반회원</b></h3>
