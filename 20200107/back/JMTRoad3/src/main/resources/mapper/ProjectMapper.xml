@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTDMapper3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bit.yam.service.ProjectMapper">
+
+	<insert id="projectInsert" useGeneratedKeys="true" keyProperty="projectNo"
+		parameterType="bit.yam.bean.ProjectVO">
+		INSERT INTO project(userNo, title, meetingDate, totalExpense)
+		VALUES(#{userNo}, #{title}, #{meetingDate}, #{totalExpense})
+	</insert>
+
+	<insert id="projectDetailInsert" parameterType="bit.yam.bean.ProjectDetailVO">
+		INSERT INTO projectDetail(projectNo, ownerNo, routeNo)
+		VALUES(#{projectNo}, #{ownerNo}, #{routeNo})
+	</insert>
+
+</mapper>

@@ -1,0 +1,103 @@
+.record {
+  padding: 0 20px;
+
+  .field {
+    margin-top: 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &.comment {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    &.field-store {
+      overflow: hidden;
+    }
+
+    &.field-input {
+      margin-top: 30px;
+    }
+
+    svg {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+      color: rgb(255, 167, 196);
+    }
+
+    .DayPickerInput {
+      width: 100%;
+      input {
+        width: 94%;
+        height: auto;
+        padding: .7em .6em;
+        font-size: 16px;
+        font-family: inherit;
+        border: none;
+        border-radius: 5px;
+        background-color: #011627;
+        color: white;
+        outline-style: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+
+      .DayPicker {
+        display: inline-block;
+        font-size: 1rem;
+        background-color: #011627;
+      }
+    }
+
+    .input {
+      width: 100%;
+      height: auto;
+      padding: .7em .6em;
+      line-height: normal;
+      font-size: 16px;
+      font-family: inherit;
+      border: none;
+      border-radius: 5px;
+      background-color: #011627;
+      color: white;
+      outline-style: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    .star-rating {
+      height: 30px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      background-color: #011627;
+    }
+
+    .field-dutch {
+      margin-right: 10px;
+    }
+
+    &.dutch {
+      margin-top: 40px;
+    }
+
+    &.btn-box {
+      margin-top: 30px;
+
+      .btn-record {
+        display: block;
+        margin: 0 auto;
+        width: 100px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 16px;
+        padding: 1px;
+      }
+    }
+  }
+}

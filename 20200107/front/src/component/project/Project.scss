@@ -1,0 +1,22 @@
+.selectedStores {
+  width: 300px;
+  height: 800px;
+  float: left;
+  border: 1px solid gray;
+  background-color: green($color: #3b3b);
+}
+
+.singleStore {
+  width: 300px;
+  height: 200px;
+  margin: 5px;
+  font-size: 11pt;
+  background-color: green($color: #3b3b);
+}
+
+.mapArea {
+  width: 1000px;
+  height: 400px;
+  float: right;
+  background-color: green($color: #3b3b);
+}

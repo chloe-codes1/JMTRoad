@@ -1,0 +1,54 @@
+.eateryInfo{
+  position: absolute;
+  left: 250px;
+  height: 100%;
+  width: 250px;
+  border-right: 1px solid black;
+  background-color: white;
+  z-index: 3;
+}
+
+.sectionHeader{
+  padding: 0 0 0 11px;
+  margin-block-end: 5px;
+}
+
+.information{
+  display: block;
+  border: 1px solid #f3f3f3;
+  width: 90%;
+  height: 225px;
+  color: black;
+  margin: auto;
+}
+
+.infoDetail{
+  display: block;
+  width: 200px;
+  height: 60px;
+  margin: 10px auto;
+  font-size: 0.9em;
+}
+
+.review{
+  display: block;
+  border: 1px solid whitesmoke;
+  width: 90%;
+  height: 20%;
+  
+  margin: auto;
+}
+
+.btnCloseEatery{
+  position: relative;
+  left: 500px;
+
+  padding: 0.2em 0.5em;
+  font-size: 1.5em;
+  background-color: #f3f3f3; 
+  border-radius: 0 0 3px 0; 
+  border: none;
+  cursor: pointer;
+
+  z-index: 3;
+}
