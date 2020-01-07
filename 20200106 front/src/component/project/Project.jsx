@@ -1184,8 +1184,8 @@ const RouteEateryInfo = styled.div`
 const Button1 = styled.button`
   background: transparent;
   border-radius: 3px;
-  border: 2px solid palevioletred;
-  color: palevioletred;
+  border: 2px solid #1374f2;
+  color: #1374f2;
   margin: 1.1rem 1em;
   padding: 0.4em 1.2em;
   font-size: 1.05em;
@@ -1194,12 +1194,13 @@ const Button1 = styled.button`
   ${props =>
     props.save &&
     css`
-      background: palevioletred;
+      background: #1374f2;
       color: white;
 
       &:hover {
-        background: #b85673;
-        border: 2px solid #b85673;
+        background: white;
+        border: 2px solid #1374f2;
+        color: #1374f2;
       }
     `}
 `;
