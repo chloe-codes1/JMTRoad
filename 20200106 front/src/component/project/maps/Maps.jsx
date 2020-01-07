@@ -543,8 +543,7 @@ class Maps extends React.Component {
     return (
       <div>
         <p className="instruction">
-          지도를 마우스로 클릭하면 선 그리기가 시작되고, 오른쪽 마우스를
-          클릭하면 선 그리기가 종료됩니다!
+          
         </p>
         <div id="map" className="kakao"></div>
         <div id="result"></div>

@@ -6,7 +6,7 @@
   height: 100%;
   width: 250px;
   border-right: 1px solid black;
-  background-color: cornflowerblue;
+  background-color: white;
   z-index: 3;
 }
 
@@ -19,9 +19,17 @@
   display: block;
   border: 1px solid #f3f3f3;
   width: 90%;
-  height: 20%;
+  height: 225px;
   color: black;
   margin: auto;
+}
+
+.infoDetail{
+  display: block;
+  width: 200px;
+  height: 60px;
+  margin: 10px auto;
+  font-size: 0.9em;
 }
 
 .review{

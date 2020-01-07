@@ -33,17 +33,26 @@ class EateryInfo extends Component{
 
           <h3 className="sectionHeader">Information</h3>
           <div className="information">
-            주소: {storeAddress}<br/>
-            전화번호: {storeTel}<br/>
-            메인메뉴: {storeMainMenu}
+            <div className="infoDetail">
+              <b>[주소]</b><br/> 
+              {storeAddress}<br/>
+            </div>
+            <div className="infoDetail">
+              <b>[전화번호]</b><br/> 
+              {storeTel}<br/>
+            </div>
+            <div className="infoDetail">
+            <b>[메인메뉴]</b><br/> 
+              {storeMainMenu}<br/>
+            </div>
           </div>
           <br/>
 
           <h3 className="sectionHeader">Reviews</h3>
           <div className="review">
-            <h4>아 거기 별로였어요{this.props.reviewTitle}</h4>
+            <h4>{this.props.reviewTitle}</h4>
             <p>
-              블라블라{this.props.reviewContents}
+              {this.props.reviewContents}
             </p>
           </div>
 

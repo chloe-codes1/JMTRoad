@@ -11,6 +11,7 @@ import { Row, Col, Button } from "react-bootstrap";
 import SearchResult from "./SearchResult";
 import TextField from "@material-ui/core/TextField";
 import SearchIcon from "@material-ui/icons/Search";
+import { withRouter } from "react-router-dom";
 
 window.$ = window.jQuery = jQuery;
 
@@ -841,13 +842,12 @@ class Project extends React.Component {
       widthMessage: "이건 width가 84.3%"
     });
   };
-
-  saveProject = e => {
-    e.preventDefault();
-
+  
+  saveProject = () => {
+    //e.preventDefault();
     const { title, date, totalExpense, storeResult } = this.state;
     //console.log('너는 누구냐', window.sessionStorage.getItem('userNo'));
-
+    
     let project = {
       userNo: window.sessionStorage.getItem("userNo"),
       title: title,
@@ -856,7 +856,7 @@ class Project extends React.Component {
       //여기까지
       projectDetail: [{ routeNo: 0, ownerNo: 0 }]
     };
-
+    
     if (project.userNo) {
       let rNo = 0;
       for (var i = 0; i < storeResult.length; i++) {
@@ -867,22 +867,30 @@ class Project extends React.Component {
       }
       project.projectDetail = project.projectDetail.filter(
         store => store.routeNo !== 0
-      );
+        );
     } else {
       console.log("userID가 존재하지 않습니다.");
     }
-
+    
     console.log("★프로젝트정보 => ", project);
 
     axios
       .post("http://localhost:9999/project", project)
       .then(res => {
         console.log(res);
+        alert("프로젝트가 저장되었습니다. 메인페이지로 이동합니다.");
+        this.props.history.push('/main');
       })
       .catch(err => {
         console.log(err);
       });
-  };
+      
+    };
+    
+  cancelProject = () => {
+      alert("프로젝트 작성을 취소하고 메인페이지로 이동합니다.");
+      this.props.history.push('/main');
+  }
 
   render() {
     const {
@@ -925,7 +933,7 @@ class Project extends React.Component {
             />
           </div>
           <BtnGroup>
-            <Button1 onClick={this.cancel}>취 소</Button1>
+            <Button1 onClick={this.cancelProject}>취 소</Button1>
             <Button1 save onClick={this.saveProject}>
               저 장
             </Button1>
@@ -989,7 +997,9 @@ class Project extends React.Component {
             <hr className="hr2" />
 
             <div className="wow">
-              <div className="smc">여기에 경로가 생성됩니다</div>
+              <div className="smc">
+              여기에 경로가 생성됩니다
+              </div>
               {/*this.state.selectedStores*/}
               <br />
               {showResult && (
@@ -1272,4 +1282,4 @@ const BtnEP = styled.button`
   margin: 0 0 0 10px;
 `;
 
-export default withLogin(Project);
+export default withLogin(withRouter(Project));

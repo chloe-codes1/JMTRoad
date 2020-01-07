@@ -5,7 +5,7 @@ class Entrance extends Component {
 
   render(){
     return(
-      <div> 
+      <div className="entrance"> 
         Entrance Page <br/>
         <img 
           width="500px"
