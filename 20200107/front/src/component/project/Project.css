@@ -38,13 +38,13 @@
 
 .basicInfo{
   display: block;
-  margin: 0px 20px;
+  margin: 0px 10px;
 }
 
 .date{
   font-size: 1em;
   text-align: right;
-  width: 130px;
+  width: 150px;
   border: none;
 }
 
@@ -55,7 +55,7 @@
 .totalExpense{
   font-size: 1em;
   text-align: right;
-  width: 63px;
+  width: 80px;
   border: none;
 }
 
@@ -107,6 +107,19 @@
 
 .btnOptimalPath{
   cursor: pointer;
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid #7f46a6;
+  color: #7f46a6;
+  margin: 0 1em;
+  padding: 0.2em 0.8em;
+  font-size: 1.05em;
+  cursor: pointer;
+}
+
+.btnOptimalPath:hover{
+  color: white;
+  background: #7f46a6;
 }
 
 .hr2{
@@ -116,15 +129,24 @@
 .smc{
   text-align: center;
   display: block;
-  margin: 0 auto;
-  width: 150px;
+  margin: 10px auto 0 auto;
+  width: 200px;
+  font-size: 0.8em;
+  
+}
+
+.startPoint{
+  background-color: red;
 }
 
 .btnNavi{
-  display: inline-block;
+  display: block;
   width: 170px;
-  margin: 0 auto 10px auto;
+  margin: 5px auto;
   text-align: center;
+  position: relative;
+  top: -10px;
+  left: -20px;
 }
 
 .btnOpenEatery{

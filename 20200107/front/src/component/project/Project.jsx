@@ -56,7 +56,9 @@ class Project extends React.Component {
       //프로젝트 추가용
 
       width: "84.3%",
-      widthMessage: "default는 84.3%"
+      widthMessage: "default는 84.3%",
+      //btnSP: "rgb(39, 136, 252)",
+      btnEP: ""
     };
   }
 
@@ -634,23 +636,27 @@ class Project extends React.Component {
 
       if (data[i].getAttribute("mykey") !== index) {
         $("#" + data[i].getAttribute("mykey") + "").html(
-          "<span> 출발지로 설정하기</span>"
+          "<span> 출발지로</span>"
         );
 
         if (parseInt(ownerNo) === parseInt(data[i].getAttribute("mydata"))) {
           $("#1" + data[i].getAttribute("mykey") + "").html(
-            "<span> 도착지로 설정하기</span>"
+            "<span> 도착지로</span>"
           );
         }
       }
     }
     $("#" + ownerNo + "").attr("id", "출발");
-    $("#" + index + "").html("<span> 출발지</span>");
+    $("#" + index + "").html("<span style=\"font-weight: 900;\" > 출발지</span>");
     // 잘 바뀌었는지 확인용! 나중에 지우셈
     for (var j = 0; j < data.length; j++) {
       id.push(data[j].getAttribute("id"));
     }
     console.log(id);
+    
+    /*this.setState({
+      btnSP: '#f2506e',
+    })*/
   }
 
   setEndPoint(ownerNo, index) {
@@ -675,19 +681,19 @@ class Project extends React.Component {
 
       if (data[i].getAttribute("mykey") + 10 !== index) {
         $("#1" + data[i].getAttribute("mykey") + "").html(
-          "<span> 도착지로 설정하기</span>"
+          "<span> 도착지로</span>"
         );
 
         if (parseInt(ownerNo) === parseInt(data[i].getAttribute("mydata"))) {
           $("#" + data[i].getAttribute("mykey") + "").html(
-            "<span> 출발지로 설정하기</span>"
+            "<span> 출발지로</span>"
           );
         }
       }
     }
 
     $("#" + ownerNo + "").attr("id", "도착");
-    $("#1" + index + "").html("<span> 도착지</span>");
+    $("#1" + index + "").html("<span style=\"font-weight: 900;\"> 도착지</span>");
 
     // 잘 바뀌었는지 확인용! 나중에 지우셈
     for (var j = 0; j < data.length; j++) {
@@ -998,7 +1004,9 @@ class Project extends React.Component {
 
             <div className="wow">
               <div className="smc">
-              여기에 경로가 생성됩니다
+              여기에 경로가 생성됩니다.<br/>
+              출발과 도착지 버튼을 눌러 최초경로와 <br/>
+              마지막 경로를 지정합니다.
               </div>
               {/*this.state.selectedStores*/}
               <br />
@@ -1039,24 +1047,25 @@ class Project extends React.Component {
                               this.setStartPoint(row.ownerNo, index)
                             }
                             variant="info"
-                            style={{ fontSize: "10pt", padding: "2px, 3px" }}
+                            style={{ fontSize: "10pt", padding: "2px, 1px" }}
                           >
-                            출발
+                            출발지로
                           </BtnSP>
 
                           <BtnEP
                             id={index + 10}
                             onClick={() => this.setEndPoint(row.ownerNo, index)}
                             variant="warning"
-                            style={{ fontSize: "10pt", padding: "2px, 3px" }}
+                            style={{ fontSize: "10pt", padding: "2px, 1px" }}
                           >
-                            도착
+                            도착지로
                           </BtnEP>
+
                           <Button
                             id={index + 1000}
                             variant="info"
                             className="hideOrders"
-                            style={{ fontSize: "10pt", padding: "2px, 7px" }}
+                            style={{ fontSize: "10pt", padding: "2px, 2px" }}
                           >
                             경유지 순서 출력될 곳
                           </Button>
@@ -1164,7 +1173,7 @@ const Route = styled.div`
   text-align: center;
   margin: 10px auto 10px auto;
   display: block;
-  border: 1px solid blue;
+  border: 1px solid grey;
   border-radius: 10px;
   width: 200px;
 `;
@@ -1173,12 +1182,11 @@ const RouteEateryInfo = styled.div`
   text-align: center;
   margin: 10px auto 0 auto;
   display: block;
-  border: 1px solid black;
+  border: 1px solid grey;
   border-radius: 10px;
   width: 180px;
   height: 50px;
   line-height: 50px;
-  background-color: #e2e2e2;
 `;
 
 const Button1 = styled.button`
@@ -1260,27 +1268,48 @@ const BtnRouteDelete = styled.button`
   text-align: center;
   vertical-align: middle;
   line-height: 18px;
-  margin: auto;
+  margin: 3px auto;
   float: right;
   position: relative;
-  right: 15px;
-  top: -50px;
+  right: 10px;
+  top: -46px;
   font-size: 0.9em;
   cursor: pointer;
   background-color: white;
   border: 1px solid gray;
-
+  display: block;
+  
   &:hover {
     color: palevioletred;
   }
 `;
 
 const BtnSP = styled.button`
-  margin: 0 10px 0 0;
+  margin: 0 5px 0 0;
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid rgb(39, 136, 252);
+  color: rgb(39, 136, 252);
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(39, 136, 252);
+    color: white;
+  }
 `;
 
 const BtnEP = styled.button`
-  margin: 0 0 0 10px;
+  margin: 0 0 0 5px;
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid #f2506e;
+  color: #f2506e;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f2506e;
+    color: white;
+  }
 `;
 
 export default withLogin(withRouter(Project));
