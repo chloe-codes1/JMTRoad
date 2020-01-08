@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTDMapper3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="bit.yam.service.ProjectCommentMapper">
+  	<select id="projectCommentList" resultType="ProjectCommentVO" parameterType="int">
+  		select pc.projectcommentNo, pc.projectNo, pc.userNo, pc.content, pc.regDate, u.nickname  
+  		from projectcomment pc, users u 
+  		where pc.userNo = u.userNo 
+  		and pc.open=1
+  		and projectNo = #{projectNo};
+  	</select>
+  	
+  	<insert id="insertProjectComment" parameterType="ProjectCommentVO">
+  		insert into projectComment(projectNo, userNo, content, open) values( #{projectNo}, #{userNo}, #{content}, 1 )
+  	</insert>
+  	
+  	<update id="updateProjectComment" parameterType="map">
+  		update projectComment set content = #{content} where projectCommentNo = #{projectCommentNo}
+  	</update>
+  	
+  	<!-- <delete id="deleteProjectComment" parameterType="int">
+  		delete from projectComment where projectCommentNo = #{projectCommentNo} and userNo = #{userNo}
+  	</delete> -->
+  	<delete id="deleteProjectComment" parameterType="int">
+  		delete from projectComment where projectCommentNo = #{projectCommentNo}
+  	</delete>
+  </mapper>
