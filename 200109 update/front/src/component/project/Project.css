@@ -1,0 +1,280 @@
+.header{
+  display: block;
+  height: 80px;
+  width: 100%;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.titleOutline{
+  display: inline-block;
+  width: 40%;
+  border-radius: 3px;
+  border: 2px solid #7f46a6;
+  margin: 1em 1em;
+}
+
+.container{
+  width: 100%;
+  height: 800px;
+}
+
+.leftside{
+  position: absolute;
+  width: 250px;
+  height: 100%;
+  border-right: 1px solid black;
+  z-index: 2;
+  background-color: white;
+  clear: both;
+}
+
+.wow{
+  overflow: scroll;
+  display: block;
+  height: 84%;
+  background-color: white;
+}
+
+.basicInfo{
+  display: block;
+  margin: 0px 10px;
+}
+
+.date{
+  font-size: 1em;
+  text-align: right;
+  width: 150px;
+  border: none;
+}
+
+.date:hover{
+  border: 1px solid gray;
+}
+
+.totalExpense{
+  font-size: 1em;
+  text-align: right;
+  width: 80px;
+  border: none;
+}
+
+.totalExpense:hover{
+  border: 1px solid gray;
+}
+
+.routeDetailInfo{
+  position: relative;
+  left: -30px;
+  display: inline-block;
+  width: 120px;
+  margin-top: 5px;
+}
+
+.time{
+  font-size: 0.8em;
+  border: none;
+  width: 80px;
+}
+
+.time:hover{
+  border: 1px solid gray
+}
+
+.expense{
+  font-size: 0.8em;
+  border: none;
+  width: 62px;
+  text-align: right;
+}
+
+.expense:hover{
+  border: 1px solid gray
+}
+
+.ellipsis{
+  display: block;
+  width: 50px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.optimalPath{
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.btnOptimalPath{
+  cursor: pointer;
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid #7f46a6;
+  color: #7f46a6;
+  margin: 0 1em;
+  padding: 0.2em 0.8em;
+  font-size: 1.05em;
+  cursor: pointer;
+}
+
+.btnOptimalPath:hover{
+  color: white;
+  background: #7f46a6;
+}
+
+.hr2{
+  margin-bottom: 0px;
+}
+
+.smc{
+  text-align: center;
+  display: block;
+  margin: 10px auto 0 auto;
+  width: 200px;
+  font-size: 0.8em;
+  
+}
+
+.startPoint{
+  background-color: red;
+}
+
+.btnNavi{
+  display: block;
+  width: 170px;
+  margin: 5px auto;
+  text-align: center;
+  position: relative;
+  top: -10px;
+  left: -20px;
+}
+
+.btnOpenEatery{
+  position: relative;
+  left: 250px;
+
+  padding: 0.2em 0.5em;
+  font-size: 1.5em;
+  background-color: #f3f3f3; 
+  border-radius: 0 0 3px 0; 
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.googleMap{
+  float: right;
+  width: 68%; /*max:84, min:68*/
+  height: 97%;
+  background-color: 1374f2;
+  left: 250px; 
+  z-index: 1;
+}
+
+.searchingArea {
+  height: 100px;
+  width: 370px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin: 0 auto;
+  float: right;
+  font-size: 11pt;
+  text-align: center;
+  z-index: 2;
+  position: absolute;
+  top: 180px;
+  right: 120px;
+  background: white;
+  opacity: 0.87;
+}
+
+.afterSearchingArea {
+  height: 300px;
+  width: 370px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin: 0 auto;
+  float: right;
+  font-size: 11pt;
+  text-align: center;
+  z-index: 2;
+  position: absolute;
+  top: 180px;
+  right: 120px;
+  background: white;
+  opacity: 0.87;
+}
+
+
+.hideOrders {
+  display: none;
+}
+
+.showOrders {
+  display: block;
+}
+
+.hideMap {
+  display: none;
+}
+
+.showMap {
+  display: block;
+  width: 1000px;
+  height: 400px;
+  float: right;
+}
+
+.kakaoResult {
+  float: right;
+  width: 100%;
+  height: 100%;
+}
+
+#resultMap .customoverlay {
+  position: relative;
+  bottom: 80px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  border-bottom: 2px solid #ddd;
+  float: left;
+}
+#resultMap .customoverlay:nth-of-type(n) {
+  border: 0;
+  box-shadow: 0px 1px 2px #888;
+}
+#resultMap .customoverlay a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  overflow: hidden;
+  background: #fcc419;
+  background: #fcc419
+    url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png)
+    no-repeat right 14px center;
+}
+#resultMap .customoverlay .title {
+  display: block;
+  text-align: center;
+  background: #fff;
+  margin-right: 35px;
+  padding: 5px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #1971c2;
+}
+
+#resultMap .customoverlay:after {
+  content: "";
+  position: absolute;
+  margin-left: -12px;
+  left: 50%;
+  bottom: -12px;
+  width: 22px;
+  height: 12px;
+  background: url("http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png");
+}

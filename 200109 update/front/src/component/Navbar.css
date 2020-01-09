@@ -1,0 +1,24 @@
+.Nav_Links {
+    color: white;
+    margin: 15px;
+    margin-left: 110px;
+    text-decoration: none;
+}
+
+#appbar{
+    background-color: #7F46A6;
+    padding-left: 20px;
+}
+
+#title{
+    text-align: left;
+    font-size: 40px;
+    font-family: Hanna;
+    float: left;
+}
+
+#logoimg{
+    width: 35px;
+    height: 35px;
+    margin-left: 5px;
+}
