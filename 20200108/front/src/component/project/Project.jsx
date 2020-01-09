@@ -49,6 +49,10 @@ class Project extends React.Component {
       address: "",
       storeName: "",
       mainMenu: "",
+      reviews: [],
+      owNo: '',
+      rate: '',
+      reviewCount: '',
 
       time: "",
       expense: "",
@@ -128,27 +132,20 @@ class Project extends React.Component {
                 JSON.stringify(coordinateObject)
             );
 
-            window.stName = store.storeName;
-            window.stAddress = store.address;
-            window.stTel = store.tel;
-            window.stMainMenu = store.mainMenu;
-            window.sessionStorage.setItem("ownerNo", store.ownerNo);
+            //window.stName = store.storeName;
+            //window.stAddress = store.address;
+            //window.stTel = store.tel;
+            //window.stMainMenu = store.mainMenu;
+            //window.sessionStorage.setItem("ownerNo", store.ownerNo);
+            var owNo = store.ownerNo;
+            console.log('oooowno', store.owNo);
 
-            console.log(
-              "변수에 저장한 stName 등 =>",
-              window.stName,
-              window.stAddress,
-              window.stTel,
-              window.stMainMenu
-            );
+            this.setState({
+              owNo: store.ownerNo
+            })
 
             // store에 좌표를 추가하기 ...드디어 성공 흑흑 JQuery 최고야
             store = $.extend(store, coordinateObject);
-
-            console.log("★★selectedStores", selectedStores);
-            console.log("★★storeResult", storeResult);
-            console.log("★★store", store);
-            console.log("**store보자", window.sessionStorage.getItem("ownerNo"));
 
             result.push(store);
           }
@@ -163,7 +160,10 @@ class Project extends React.Component {
         storeName: window.stName,
         mainMenu: window.mainMenu
       });
+    this.getStoreReview();  
   };
+
+
   shortestPath = () => {
     console.log("shortestPath() called!");
 
@@ -804,7 +804,7 @@ class Project extends React.Component {
   componentDidMount() {
     this.getStoreInfo();
   }
-
+  
   componentDidUpdate() {
     const { storeName, tel, address, mainMenu } = this.state;
 
@@ -894,6 +894,50 @@ class Project extends React.Component {
       this.props.history.push('/main');
   }
 
+  getStoreReview = () => {
+
+    const { storeNumber } = this.state;
+
+    this.setState({
+      storeNumber: window.sessionStorage.getItem("ownerNo")
+    }) 
+
+    console.log('♥♥스토어넘버가 왜 안찍히지', window.sessionStorage.getItem("ownerNo"));
+
+    console.log('나와라나와라나와라', this.state.owNo);
+
+    axios
+      .get("http://localhost:9999/storeReview" + "/" + this.state.owNo)
+      .then( res => {
+        console.log('♥♥레스레스레스', res)
+
+        this.setState({
+          tel: res.data.tel,
+          address: res.data.address,
+          storeName: res.data.storeName,
+          mainMenu: res.data.mainMenu,
+          reviews: res.data.srlist
+        })
+        console.log('♥♥reviews', this.state.reviews);
+
+        let totalsub = 0;
+
+        this.state.reviews.map( review => {
+          totalsub += (review.star - 60);
+        })
+
+        this.setState({
+          reviewCount: this.state.reviews.length,
+          rate: (totalsub/this.state.reviews.length)
+        })
+
+        console.log('♥♥자~알 받았다!');
+      })
+      .catch( err => {
+        console.log('getStoreReview()에서 에러 등장했습니다.', err);
+      });
+  }
+
   render() {
     const {
       storeResult,
@@ -915,6 +959,7 @@ class Project extends React.Component {
       address,
       mainMenu
     );
+    console.log('리뷰리뷰리뷰', this.state.reviews);
 
     const { modal, eateryInfoCloseMC, width } = this.state;
 
@@ -1098,6 +1143,13 @@ class Project extends React.Component {
               storeAddress={this.state.address}
               storeTel={this.state.tel}
               storeMainMenu={this.state.mainMenu}
+              rate={this.state.rate}
+              reviewCount={this.state.reviewCount}
+              review={this.state.reviews.map(review => 
+                <div className="reviewContent">
+                  {review.contents}
+                </div>
+              )}
             />
           )}
 
@@ -1116,7 +1168,7 @@ class Project extends React.Component {
                   value={this.state.storeName}
                   defaultValue=""
                   style={{
-                    margin: "10px",
+                    margin: "10px", 
                     width: "280px",
                     fontSize: "10pt",
                     padding: "10px"

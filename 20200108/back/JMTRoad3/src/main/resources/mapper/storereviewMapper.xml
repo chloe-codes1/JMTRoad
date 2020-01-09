@@ -34,4 +34,12 @@
 		
 	</select>
 	
+	<select id="getOwnerStore" parameterType="int"
+		resultType="bit.yam.bean.OwnerStore">
+		
+		SELECT * FROM ownerstore
+		WHERE ownerNo=#{ownerNo}
+	
+	</select>
+	
 </mapper>

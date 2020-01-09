@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./EateryInfo.css";
-import axios from "axios";
 
 class EateryInfo extends Component{
 
@@ -17,41 +16,10 @@ class EateryInfo extends Component{
     }
   }
 
-  componentDidMount(){
-    this.getStoreReview();
-  }
-
-  getStoreReview = () => {
-
-    const { storeNumber } = this.state;
-
-    this.setState({
-      storeNumber: window.sessionStorage.getItem("ownerNo")
-    }) 
-
-    console.log('스토어넘버가 왜 안찍히지', window.sessionStorage.getItem("ownerNo"));
-
-    axios
-      .get("http://localhost:9999/storeReview" + "/" + window.sessionStorage.getItem("ownerNo"))
-      .then( res => {
-        console.log('레스레스레스', res)
-        this.setState({
-          reviews: res.data
-        })
-        console.log('reviews', this.state.reviews);
-        console.log('자~알 받았다!');
-      })
-      .catch( err => {
-
-      });
-  }
-
   render(){
 
-    const { eateryInfoCloseMC, storeName, storeAddress, storeTel, storeMainMenu } = this.props;
-    //const { storeName, storeAddress, storeTel, storeMainMenu } = this.state;
-
-    const { reviews } = this.state;
+    const { eateryInfoCloseMC, storeName, storeAddress, 
+      storeTel, storeMainMenu, rate, review, reviewCount } = this.props;
 
     console.log('EateryInfo() rendered');
 
@@ -85,11 +53,21 @@ class EateryInfo extends Component{
 
           <h3 className="sectionHeader">Reviews</h3>
           <div className="review">
-            <p>
-              {reviews.map(review =>
-                <p>{review.contents}</p>
-              )}
-            </p>
+            
+            <div className="infoDetail">
+                <b>[평점]</b><br/>
+              <span className="rate">
+                {rate} / 5.0
+              </span>
+            </div>
+
+            <div className="infoDetail">
+              <b>[{reviewCount}개의 맛집평]</b><br/>
+              <p>
+              {review}
+              </p>
+            </div>
+
           </div>
 
         </div>
