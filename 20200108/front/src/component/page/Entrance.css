@@ -1,65 +1,86 @@
 .body{
-    background-color: #7f46a6;
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-  }
+  background-color: #7f46a6;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
   
-  .hcontents{
-    display: block;
-    width: 920px;
-    height: 380px;
-    margin: 10px auto;
-  }
-  
-  .hcontents h1{
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    color: white;
-    font-weight: 600;
-    letter-spacing: 1px;
-  }
-  
-  .center{
-    display: block;
-    width: 100%;
-    height: 400px;
-    position: absolute;
-    top: 150px;
-  }
-  
-  
-  .centerCont{
-    display: block;
-    width: 920px;
-    height: 380px;
-    margin: 10px auto;
-  }
-  
-  .textContent{
-    float: left;
-    width: 400px;
-    height: 300px;
-    margin: 10px 20px 0 10px;
-    color: white;
-  }
-  
-  .textContent h3{
-    color: white;
-    font-size: 2.5em;
-    font-weight: 700;
-  }
-  
-  .textContent p{
-    margin-top: 10px;
-    font-size: 1.5em;
-    text-align: justify;
-  }
-  
-  .bgImage{
-    float: left;
-    margin: 10px 10px 0 20px;
-  }
+.hcontents{
+  display: block;
+  width: 920px;
+  height: 100px;
+  margin: 10px auto;
+}
+
+.hcontents h1{
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.center{
+  display: block;
+  width: 100%;
+  height: 400px;
+  position: absolute;
+  top: 130px;
+}
+
+.centerCont{
+  display: block;
+  width: 920px;
+  height: 450px;
+  margin: 10px auto;
+}
+
+.textContent{
+  float: left;
+  width: 400px;
+  height: 300px;
+  margin: 10px 20px 0 10px;
+  color: white;
+}
+
+.textContent h3{
+  color: white;
+  font-size: 3em;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.textContent p{
+  margin-top: 10px;
+  font-size: 1.5em;
+  text-align: justify;
+}
+
+.bgImage{
+  float: left;
+  margin: 10px 10px 0 20px;
+  position: relative;
+  top: -60px;
+}
+
+.bemypartner{
+  display: inline-block;
+  position: relative;
+  left: -430px;
+  top: 380px;
+  margin: 10px;
+  color: white;
+  background: #f29a2e;
+  border-radius: 3px;
+  width: 430px;
+  height: 50px;
+  line-height: 45px;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+}

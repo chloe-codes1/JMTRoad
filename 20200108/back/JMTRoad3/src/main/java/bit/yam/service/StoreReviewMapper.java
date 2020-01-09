@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import bit.yam.bean.StoreReview;
+import bit.yam.bean.StoreReviewVO;
 
 @Mapper
 public interface StoreReviewMapper {
@@ -13,4 +14,6 @@ public interface StoreReviewMapper {
 	StoreReview starCount(StoreReview storereview);
 	StoreReview storelikeCount(StoreReview storereview);
 	List<StoreReview> storereviewOwnerNo(int ownerNO);
+	
+	List<StoreReviewVO> getStoreReviewList(int ownerNo);
 }
