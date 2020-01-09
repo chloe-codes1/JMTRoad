@@ -173,15 +173,17 @@ class Login extends Component{
                   </p>
                 </div>
                 <hr/>
-                  <BtnOwnerLogin onClick={this.ownerLogin}>음식점 로그인</BtnOwnerLogin>
+                <h3><b>음식점회원</b></h3>
+                <BtnOwnerLogin onClick={this.ownerLogin}>음식점 로그인</BtnOwnerLogin>
                 <hr/>
                 {/* 묘음추가 */}
                 {/* <button onClick={this.adminLogin}>관리자 로그인</button> */}
-                <AdminButton onClick={this.adminLogin} 
-                       buttonText ="관리자 로그인ㅋㅋㅋ"
-                       onSuccess = {this.responseAdmin}
-                       onFailure = {this.responseFail}
-                       result = {this.getResult}
+                <AdminButton 
+                  onClick={this.adminLogin} 
+                  buttonText = "관리자 로그인ㅋㅋㅋ"
+                  onSuccess = {this.responseAdmin}
+                  onFailure = {this.responseFail}
+                  result = {this.getResult}
                 />
                 <hr/>
                 <div className="footer">
@@ -227,6 +229,9 @@ const BtnOwnerLogin = styled.button`
   font-weight: bold;
   text-align: center;
   cursor: pointer;
+  background: rgb(79, 176, 252);
+  color: white;
+  border: 1px solid transparent;
 `
 
 const MyModal = styled.div`

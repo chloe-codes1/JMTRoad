@@ -32,8 +32,8 @@ class Entrance extends Component {
 
             <div className="bgImage">
               <img
-                width="500px"
-                height="360px"
+                width="550px"
+                height="400px"
                 src={foodIllust}
                 alt="첫진입장벽"
                 />
@@ -61,7 +61,7 @@ const BtnSignUp = styled.button`
   color: #7f46a6;
 
   position: absolute;
-  top: 30px;
+  top: 70px;
   right: 150px;
 
   &:hover {
@@ -86,7 +86,7 @@ const BtnLogin = styled.button`
   color: white;
 
   position: absolute;
-  top: 30px;
+  top: 70px;
   right: 50px;
 
   &:hover {

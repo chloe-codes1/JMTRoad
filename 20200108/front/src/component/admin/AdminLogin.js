@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import {withRouter} from 'react-router-dom';
+import styled from 'styled-components';
 
 class AdminLogin extends Component {
     constructor(props) {
@@ -49,7 +50,7 @@ class AdminLogin extends Component {
             else{
                 console.log("로그인 실패"+data);
                 this.setState({
-                    error:"로그인실패 아이디/패스워드확인해주세요"
+                    error:"로그인 실패 : 아이디/패스워드 확인해주세요."
                 })
             }
             
@@ -60,11 +61,25 @@ class AdminLogin extends Component {
   render() {
     return (
        <div> 
-           <h1>관리자로그인</h1> 
-          <input placeholder="ID를 입력하세요" type="text" value= {this.state.adminID} onChange={this.handleChange} name="adminID" />
-          <input placeholder="pw를 입력하세요" type="text" value= {this.state.password} onChange={this.handleChange} name="password" />
-          {this.state.error}
-          <button onClick={this.login}> 로그인 </button>
+          <h3><b>관리자</b></h3>
+          <div className="loginOutline">
+            <input placeholder="ID를 입력하세요" type="text" 
+              value= {this.state.adminID} 
+              onChange={this.handleChange} 
+              name="adminID" 
+              className="adminLogin" />
+          </div>
+          <div className="loginOutline">
+            <input placeholder="PW를 입력하세요" type="text" 
+              value= {this.state.password} 
+              onChange={this.handleChange} 
+              name="password"
+              className="adminLogin" />
+          </div><br/>
+          <button onClick={this.login} className="btnLogin"> 로그인 </button><br/>
+          <div className="loginStatus">
+            {this.state.error}
+          </div>
        </div>
     );
   }
