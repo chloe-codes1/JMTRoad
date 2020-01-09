@@ -27,13 +27,13 @@ class Entrance extends Component {
               <p>우리는 맛을 사랑하는 민족입니다. 맛있는 음식점을 찾아 사진을 찍고 추억을 남깁니다. 하지만 우리는 이 음식점들을 하나로 잇지 못했습니다. 이 음식점들을 선으로 연결해 줄 지도가 필요합니다. 이제는 음식점을 사진으로만 남기지 않고, 여정으로 남겨두세요. 여러분의 그 사소한 여정이 누군가에겐 위대한 여정이 될 수 있으니.</p>
             </div>
             <div className="bemypartner">
-              지금 바로 간편하게 가입하고 무료로 이용하세요.
+              지금 바로 간편하게 가입하고 무료로 이용하세요!
             </div>
 
             <div className="bgImage">
               <img
-                width="450px"
-                height="350px"
+                width="500px"
+                height="360px"
                 src={foodIllust}
                 alt="첫진입장벽"
                 />
