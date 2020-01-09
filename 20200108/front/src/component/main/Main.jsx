@@ -16,6 +16,7 @@ import HotProjectList from "./HotProjectList";
 import NewProjectList from "./NewProjectList";
 import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
 import HighlightIcon from '@material-ui/icons/Highlight';
+import withLogin from "../login/LoginHOC";
 
 class Main extends React.Component {
   constructor(props) {
@@ -198,4 +199,4 @@ const menuinneritem = {
   fontFamily: 'LotteMartHappy'
 }
 
-export default Main;
+export default withLogin(Main);

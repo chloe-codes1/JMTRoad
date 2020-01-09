@@ -10,13 +10,16 @@ class EateryInfo extends Component{
       storeAddress: '',
       storeTel: '',
       storeMainMenu: '',
+      storeNumber: '',
+
+      reviews: []
     }
   }
 
   render(){
 
-    const { eateryInfoCloseMC, storeName, storeAddress, storeTel, storeMainMenu } = this.props;
-    //const { storeName, storeAddress, storeTel, storeMainMenu } = this.state;
+    const { eateryInfoCloseMC, storeName, storeAddress, 
+      storeTel, storeMainMenu, rate, review, reviewCount } = this.props;
 
     console.log('EateryInfo() rendered');
 
@@ -50,10 +53,21 @@ class EateryInfo extends Component{
 
           <h3 className="sectionHeader">Reviews</h3>
           <div className="review">
-            <h4>{this.props.reviewTitle}</h4>
-            <p>
-              {this.props.reviewContents}
-            </p>
+            
+            <div className="infoDetail">
+                <b>[평점]</b><br/>
+              <span className="rate">
+                {rate} / 5.0
+              </span>
+            </div>
+
+            <div className="infoDetail">
+              <b>[{reviewCount}개의 맛집평]</b><br/>
+              <p>
+              {review}
+              </p>
+            </div>
+
           </div>
 
         </div>

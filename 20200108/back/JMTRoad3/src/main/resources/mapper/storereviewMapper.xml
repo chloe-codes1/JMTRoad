@@ -24,4 +24,22 @@
 	<!-- Tips -->
 	<!-- Comment 수 <select id="commentCount" resultType="int"> SELECT COUNT(*) 
 		FROM healthComment </select> -->
+		
+	<!-- 은석추가 -->
+	<select id="getStoreReviewList" parameterType="int" 
+		resultType="bit.yam.bean.StoreReviewVO">
+		
+		SELECT * FROM storereview
+		WHERE ownerNo=#{ownerNo}
+		
+	</select>
+	
+	<select id="getOwnerStore" parameterType="int"
+		resultType="bit.yam.bean.OwnerStore">
+		
+		SELECT * FROM ownerstore
+		WHERE ownerNo=#{ownerNo}
+	
+	</select>
+	
 </mapper>

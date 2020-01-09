@@ -49,6 +49,10 @@ class Project extends React.Component {
       address: "",
       storeName: "",
       mainMenu: "",
+      reviews: [],
+      owNo: '',
+      rate: '',
+      reviewCount: '',
 
       time: "",
       expense: "",
@@ -128,25 +132,20 @@ class Project extends React.Component {
                 JSON.stringify(coordinateObject)
             );
 
-            window.stName = store.storeName;
-            window.stAddress = store.address;
-            window.stTel = store.tel;
-            window.stMainMenu = store.mainMenu;
+            //window.stName = store.storeName;
+            //window.stAddress = store.address;
+            //window.stTel = store.tel;
+            //window.stMainMenu = store.mainMenu;
+            //window.sessionStorage.setItem("ownerNo", store.ownerNo);
+            var owNo = store.ownerNo;
+            console.log('oooowno', store.owNo);
 
-            console.log(
-              "변수에 저장한 stName 등 =>",
-              window.stName,
-              window.stAddress,
-              window.stTel,
-              window.stMainMenu
-            );
+            this.setState({
+              owNo: store.ownerNo
+            })
 
             // store에 좌표를 추가하기 ...드디어 성공 흑흑 JQuery 최고야
             store = $.extend(store, coordinateObject);
-
-            console.log("★★selectedStores", selectedStores);
-            console.log("★★storeResult", storeResult);
-            console.log("★★store", store);
 
             result.push(store);
           }
@@ -161,7 +160,10 @@ class Project extends React.Component {
         storeName: window.stName,
         mainMenu: window.mainMenu
       });
+    this.getStoreReview();  
   };
+
+
   shortestPath = () => {
     console.log("shortestPath() called!");
 
@@ -634,18 +636,18 @@ class Project extends React.Component {
 
       if (data[i].getAttribute("mykey") !== index) {
         $("#" + data[i].getAttribute("mykey") + "").html(
-          "<span> 출발지로 설정하기</span>"
+          "<span> 출발지로</span>"
         );
 
         if (parseInt(ownerNo) === parseInt(data[i].getAttribute("mydata"))) {
           $("#1" + data[i].getAttribute("mykey") + "").html(
-            "<span> 도착지로 설정하기</span>"
+            "<span> 도착지로</span>"
           );
         }
       }
     }
     $("#" + ownerNo + "").attr("id", "출발");
-    $("#" + index + "").html("<span> 출발지</span>");
+    $("#" + index + "").html("<span style=\"font-weight: 900;\" > 출발지</span>");
     // 잘 바뀌었는지 확인용! 나중에 지우셈
     for (var j = 0; j < data.length; j++) {
       id.push(data[j].getAttribute("id"));
@@ -675,19 +677,19 @@ class Project extends React.Component {
 
       if (data[i].getAttribute("mykey") + 10 !== index) {
         $("#1" + data[i].getAttribute("mykey") + "").html(
-          "<span> 도착지로 설정하기</span>"
+          "<span> 도착지로</span>"
         );
 
         if (parseInt(ownerNo) === parseInt(data[i].getAttribute("mydata"))) {
           $("#" + data[i].getAttribute("mykey") + "").html(
-            "<span> 출발지로 설정하기</span>"
+            "<span> 출발지로</span>"
           );
         }
       }
     }
 
     $("#" + ownerNo + "").attr("id", "도착");
-    $("#1" + index + "").html("<span> 도착지</span>");
+    $("#1" + index + "").html("<span style=\"font-weight: 900;\"> 도착지</span>");
 
     // 잘 바뀌었는지 확인용! 나중에 지우셈
     for (var j = 0; j < data.length; j++) {
@@ -802,7 +804,7 @@ class Project extends React.Component {
   componentDidMount() {
     this.getStoreInfo();
   }
-
+  
   componentDidUpdate() {
     const { storeName, tel, address, mainMenu } = this.state;
 
@@ -892,6 +894,50 @@ class Project extends React.Component {
       this.props.history.push('/main');
   }
 
+  getStoreReview = () => {
+
+    const { storeNumber } = this.state;
+
+    this.setState({
+      storeNumber: window.sessionStorage.getItem("ownerNo")
+    }) 
+
+    console.log('♥♥스토어넘버가 왜 안찍히지', window.sessionStorage.getItem("ownerNo"));
+
+    console.log('나와라나와라나와라', this.state.owNo);
+
+    axios
+      .get("http://localhost:9999/storeReview" + "/" + this.state.owNo)
+      .then( res => {
+        console.log('♥♥레스레스레스', res)
+
+        this.setState({
+          tel: res.data.tel,
+          address: res.data.address,
+          storeName: res.data.storeName,
+          mainMenu: res.data.mainMenu,
+          reviews: res.data.srlist
+        })
+        console.log('♥♥reviews', this.state.reviews);
+
+        let totalsub = 0;
+
+        this.state.reviews.map( review => {
+          totalsub += (review.star - 60);
+        })
+
+        this.setState({
+          reviewCount: this.state.reviews.length,
+          rate: (totalsub/this.state.reviews.length)
+        })
+
+        console.log('♥♥자~알 받았다!');
+      })
+      .catch( err => {
+        console.log('getStoreReview()에서 에러 등장했습니다.', err);
+      });
+  }
+
   render() {
     const {
       storeResult,
@@ -913,6 +959,7 @@ class Project extends React.Component {
       address,
       mainMenu
     );
+    console.log('리뷰리뷰리뷰', this.state.reviews);
 
     const { modal, eateryInfoCloseMC, width } = this.state;
 
@@ -998,7 +1045,9 @@ class Project extends React.Component {
 
             <div className="wow">
               <div className="smc">
-              여기에 경로가 생성됩니다
+                여기에 경로가 생성됩니다.<br/>
+                출발과 도착지 버튼을 눌러 최초경로와 <br/>
+                마지막 경로를 지정합니다.
               </div>
               {/*this.state.selectedStores*/}
               <br />
@@ -1039,24 +1088,25 @@ class Project extends React.Component {
                               this.setStartPoint(row.ownerNo, index)
                             }
                             variant="info"
-                            style={{ fontSize: "10pt", padding: "2px, 3px" }}
+                            style={{ fontSize: "10pt", padding: "2px, 1px" }}
                           >
-                            출발
+                            출발지로
                           </BtnSP>
 
                           <BtnEP
                             id={index + 10}
                             onClick={() => this.setEndPoint(row.ownerNo, index)}
                             variant="warning"
-                            style={{ fontSize: "10pt", padding: "2px, 3px" }}
+                            style={{ fontSize: "10pt", padding: "2px, 1px" }}
                           >
-                            도착
+                            도착지로
                           </BtnEP>
+
                           <Button
                             id={index + 1000}
                             variant="info"
                             className="hideOrders"
-                            style={{ fontSize: "10pt", padding: "2px, 7px" }}
+                            style={{ fontSize: "10pt", padding: "2px, 2px" }}
                           >
                             경유지 순서 출력될 곳
                           </Button>
@@ -1093,6 +1143,13 @@ class Project extends React.Component {
               storeAddress={this.state.address}
               storeTel={this.state.tel}
               storeMainMenu={this.state.mainMenu}
+              rate={this.state.rate}
+              reviewCount={this.state.reviewCount}
+              review={this.state.reviews.map(review => 
+                <div className="reviewContent">
+                  {review.contents}
+                </div>
+              )}
             />
           )}
 
@@ -1111,7 +1168,7 @@ class Project extends React.Component {
                   value={this.state.storeName}
                   defaultValue=""
                   style={{
-                    margin: "10px",
+                    margin: "10px", 
                     width: "280px",
                     fontSize: "10pt",
                     padding: "10px"
@@ -1164,7 +1221,7 @@ const Route = styled.div`
   text-align: center;
   margin: 10px auto 10px auto;
   display: block;
-  border: 1px solid blue;
+  border: 1px solid grey;
   border-radius: 10px;
   width: 200px;
 `;
@@ -1173,7 +1230,7 @@ const RouteEateryInfo = styled.div`
   text-align: center;
   margin: 10px auto 0 auto;
   display: block;
-  border: 1px solid black;
+  border: 1px solid grey;
   border-radius: 10px;
   width: 180px;
   height: 50px;
@@ -1260,15 +1317,16 @@ const BtnRouteDelete = styled.button`
   text-align: center;
   vertical-align: middle;
   line-height: 18px;
-  margin: auto;
+  margin: 3px auto;
   float: right;
   position: relative;
-  right: 15px;
-  top: -50px;
+  right: 10px;
+  top: -46px;
   font-size: 0.9em;
   cursor: pointer;
   background-color: white;
   border: 1px solid gray;
+  display: block;
 
   &:hover {
     color: palevioletred;
@@ -1276,11 +1334,31 @@ const BtnRouteDelete = styled.button`
 `;
 
 const BtnSP = styled.button`
-  margin: 0 10px 0 0;
+  margin: 0 5px 0 0;
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid rgb(39, 136, 252);
+  color: rgb(39, 136, 252);
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(39, 136, 252);
+    color: white;
+  }
 `;
 
 const BtnEP = styled.button`
-  margin: 0 0 0 10px;
+  margin: 0 0 0 5px;
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid #f2506e;
+  color: #f2506e;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f2506e;
+    color: white;
+  }
 `;
 
 export default withLogin(withRouter(Project));

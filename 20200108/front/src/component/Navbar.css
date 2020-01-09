@@ -8,6 +8,11 @@
     color: #F2506E;
 }
 
+.Nav_Links_home{
+    text-decoration: none;
+    color: white;
+}
+
 #appbar{
     background-color: #7F46A6;
 }

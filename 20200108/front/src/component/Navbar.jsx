@@ -28,8 +28,9 @@ class NavBar extends React.Component {
       <div style={styled}>
         <AppBar position="static" id="appbar">
           <Toolbar >
-            <p id="title">맛집의 민족<img src={logo} id="logoimg"/></p>
-
+            <Link to="/main" className="Nav_Links_home">
+              <p id="title">맛집의 민족<img src={logo} id="logoimg"/></p>
+            </Link>
             <Link to="/main" className="Nav_Links">
               Main
             </Link>
