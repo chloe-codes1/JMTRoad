@@ -1,0 +1,30 @@
+.Nav_Links {
+    color: white;
+    margin: auto;
+    text-decoration: none;
+}
+
+.Nav_Links:hover{
+    color: #F2506E;
+}
+
+.Nav_Links_home{
+    text-decoration: none;
+    color: white;
+}
+
+#appbar{
+    background-color: #7F46A6;
+}
+
+#title{
+    text-align: left;
+    font-size: 40px;
+    font-family: Hanna;
+    float: left;
+}
+
+#logoimg{
+    width: 35px;
+    height: 35px;
+}

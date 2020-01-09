@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTDMapper3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bit.yam.service.ProjectMapper">
+
+	<insert id="projectInsert" useGeneratedKeys="true" keyProperty="projectNo"
+		parameterType="bit.yam.bean.ProjectVO">
+		INSERT INTO project(userNo, title, meetingDate, totalExpense)
+		VALUES(#{userNo}, #{title}, #{meetingDate}, #{totalExpense})
+	</insert>
+
+	<insert id="projectDetailInsert" parameterType="bit.yam.bean.ProjectDetailVO">
+		INSERT INTO projectDetail(projectNo, ownerNo, routeNo)
+		VALUES(#{projectNo}, #{ownerNo}, #{routeNo})
+	</insert>
+	
+	<!-- 묘음추가 -->
+	<!-- 조회수증가 -->
+	<update id="updateRead" parameterType="int">
+  		update project p set p.read = p.read + 1 where projectNo = #{projectNo} 
+  	</update>
+	<!-- 프로젝트1개조회 -->
+  	<select id="selectProject" resultType="ProjectVO" parameterType="int">
+  		select p.projectNo, u.nickname, p.title, p.regDate, p.meetingDate, p.read, p.buddies, u.userNo, sum(pj.payment) as totalExpense
+		from project p, users u, ProjectDetail pj
+		where p.userNo=u.userNo  
+		and p.projectNo = #{projectNo} 
+		and pj.projectNo = p.projectNo
+  	</select>
+  	
+  	<!-- 프로젝트 수정 -->
+  	<update id="updateProject" parameterType="ProjectVO">
+  		update project set title=#{title}, meetingDate=#{meetingDate}, buddies=#{buddies} where projectNo = #{projectNo}
+  	</update>
+  	
+  	<!-- 프로젝트삭제하는 업데이트 --> 	
+  	<update id="deleteProject" parameterType="int">
+  		update project set projectStatus=72 where projectNo = #{projectNo}
+  	</update>
+  		
+  	<!-- 프로젝트삭제하면 좋아요삭제 --> 	
+  	<delete id="projectLikeRemove" parameterType="int">
+  		delete from projectlike where projectNo = #{projectNo}
+  	</delete>
+  	<!-- 프로젝트삭제하면 댓글삭제 --> 	
+  	<delete id="projectCommentRemove" parameterType="int">
+  		delete from projectComment where projectNo = #{projectNo}
+  	</delete>
+  	<!-- 프로젝트삭제하면 프로젝트디테일삭제 --> 	
+  	<delete id="projectDetailRemove" parameterType="int">
+  		delete from projectDetail where projectNo = #{projectNo}
+  	</delete>
+  	
+  	
+  	<!-- 프로젝트좋아요 -->
+  	<insert id="projectLike" parameterType="int">
+  		insert into projectlike(projectNo, userNo) values(#{projectNo} ,#{userNo} ) 
+  	</insert>
+  	<!-- 프로젝트좋아요취소 -->
+  	<delete id="projectLikeDel" parameterType="int">
+  		delete from projectlike where projectNo = #{projectNo} and userNo = #{userNo} 
+  	</delete>
+  	<select id="projectLikeView" parameterType="int" resultType="projectLikeVO">
+  		select * from projectlike where projectNo = #{projectNo} and userNo = #{userNo} 
+  	</select>
+  	
+
+</mapper>

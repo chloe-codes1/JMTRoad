@@ -1,0 +1,71 @@
+.eateryInfo{
+  position: absolute;
+  left: 250px;
+  height: 100%;
+  width: 250px;
+  border-right: 1px solid black;
+  background-color: white;
+  z-index: 3;
+  overflow: auto;
+}
+
+.sectionHeader{
+  padding: 0 0 0 11px;
+  margin-block-end: 5px;
+}
+
+.information{
+  display: block;
+  border: 1px solid grey;
+  width: 90%;
+  height: 225px;
+  color: black;
+  margin: auto;
+}
+
+.infoDetail{
+  display: block;
+  width: 200px;
+  height: 60px;
+  margin: 10px auto;
+  font-size: 0.9em;
+}
+
+.review{
+  display: block;
+  border: 1px solid grey;
+  width: 90%;
+  height: 385px;
+  margin: auto;
+}
+
+.rate{
+  font-size: 1.8em;
+  font-weight: 600;
+}
+
+.reviewContent{
+  display: block;
+  border: 1px dashed grey;
+  width: 200px;
+  height: 50px;
+  text-align: justify;
+  font-size: 0.93em;
+  margin: 5px auto;
+  padding: 5px;
+}
+
+
+.btnCloseEatery{
+  position: relative;
+  left: 500px;
+
+  padding: 0.2em 0.5em;
+  font-size: 1.5em;
+  background-color: #f3f3f3; 
+  border-radius: 0 0 3px 0; 
+  border: none;
+  cursor: pointer;
+
+  z-index: 3;
+}
