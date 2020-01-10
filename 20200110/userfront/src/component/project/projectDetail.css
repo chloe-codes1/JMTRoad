@@ -1,0 +1,15 @@
+div {
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.hide {
+    /* display: none; */
+    visibility : hidden;
+    
+}
+
+.show {
+    /* display: block; */
+    visibility : visible;
+}

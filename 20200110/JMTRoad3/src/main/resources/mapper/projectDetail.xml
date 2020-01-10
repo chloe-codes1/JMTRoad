@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTDMapper3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="bit.yam.service.ProjectDetailMapper">
+<!--  	<select id="listProjectDetail" resultType="ProjectDetailVO" parameterType="int">
+ 		select * from ProjectDetail where projectNo = #{projectNo} order by routeNo
+ 	</select> -->
+ 	
+ 	<select id="listProjectDetail" resultType="ProjectDetailVO" parameterType="int">
+ 		select p.projectNo, p.ownerNo, p.routeNo, p.estimate, p.payment, p.memo, o.storeName, o.menuImg, pr.userNo
+		from projectdetail p, ownerstore o, project pr
+		where p.projectNo = pr.projectNo 
+		and p.ownerNo = o.ownerNo
+		and p.projectNo = #{projectNo} 
+		order by routeNo;
+ 	</select>
+ 	
+ 	<update id="updateProjectDetail" parameterType="ProjectDetailVO">
+ 		UPDATE ProjectDetail Set estimate = #{estimate}, payment=#{payment}, memo = #{memo}
+		where projectNo = #{projectNo} and ownerNo = #{ownerNo}
+ 	</update>
+
+ 	<delete id="deleteProjectDetail" parameterType="int">
+ 		delete from ProjectDetail where projectNo = #{projectNo} and ownerNo = #{ownerNo}
+ 	</delete>
+ 	
+ 	
+ 
+ </mapper>

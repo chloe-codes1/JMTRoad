@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTDMapper3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bit.yam.service.ProjectListMapper">
+
+<select id="getMyProjectList" parameterType="int" resultType="ProjectVO">
+
+	SELECT * FROM Project WHERE userNo = #{userNo} AND shared = false
+
+</select>
+
+<select id="getSavedProjectList" parameterType="int" resultType="ProjectVO">
+
+	SELECT * FROM Project WHERE userNo = #{userNo} AND shared = true
+
+</select>
+
+<select id="getLikedProjectList" parameterType="int" resultType="ProjectVO">
+
+	SELECT * FROM Project WHERE projectNo IN (SELECT projectNo FROM ProjectLike WHERE userNo = #{userNo})
+
+</select>
+
+<!-- 묘음 -->
+<select id="projectList" resultType="ProjectVO">
+  		select p.projectNo, u.nickname, p.title, p.regDate, p.meetingDate, p.totalExpense, p.read, p.buddies, o.menuImg
+		from project p, users u, OwnerStore o, projectDetail pd
+		where p.userNo=u.userNo 
+		and p.open = 1
+		and p.projectStatus = 71 
+		and pd.projectNo = p.projectNo
+		and o.ownerNo = pd.ownerNo
+		and pd.routeNo = 1
+  	</select>
+  	
+  	<select id="hotProjectList" resultType="ProjectVO">
+  		select p.projectNo, u.nickname, p.title, p.regDate, p.meetingDate, p.totalExpense, p.read, p.buddies, o.menuImg
+		from project p, users u, OwnerStore o, projectDetail pd
+		where p.userNo=u.userNo 
+		and p.open = 1
+		and p.projectStatus = 71 
+		and pd.projectNo = p.projectNo
+		and o.ownerNo = pd.ownerNo
+		and pd.routeNo = 1
+		order by p.read desc limit 5
+  	</select>
+  	
+  	<select id="newProjectList" resultType="ProjectVO">
+  		select p.projectNo, u.nickname, p.title, p.regDate, p.meetingDate, p.totalExpense, p.read, p.buddies, o.menuImg
+		from project p, users u, OwnerStore o, projectDetail pd
+		where p.userNo=u.userNo 
+		and p.open = 1
+		and p.projectStatus = 71 
+		and pd.projectNo = p.projectNo
+		and o.ownerNo = pd.ownerNo
+		and pd.routeNo = 1
+		order by p.regDate desc limit 5
+  	</select> 
+
+
+
+
+</mapper>

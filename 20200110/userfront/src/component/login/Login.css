@@ -1,0 +1,86 @@
+.MyModal {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.MyModal .InnerModal {
+background: white;
+padding: 1rem;
+width: 400px;
+height: auto;
+text-align: center;
+}
+
+/*여기까지 styled-component로 옮김*/
+/*css로 먼저 작성 후(자동완성편함) styled-component로 옮기기*/
+
+.header{
+height: 60px;
+}
+
+.expl {
+font-size: 13px;
+margin: 10px auto;
+display: block;
+}
+
+hr {
+border-top: 1px solid #bbb;
+text-align: center;
+}
+
+.footer p{
+margin-bottom: 0;
+}
+
+.h3{
+margin: 10px auto;
+}
+
+.adminLogin{
+  width: 110px;
+  display: block;
+  margin: 0.35rem 0.5em;
+  padding: 0em 0.5em;
+  color: black;
+  font-size: 0.9em;
+  border: none;
+}
+
+.loginOutline{
+  display: inline-block;
+  width: 125px;
+  border-radius: 3px;
+  border: 2px solid grey;
+  margin: 10px 5px;
+}
+
+.btnLogin{
+  background-color: #b2b2b2;
+  border-radius: 3px;
+  border: 2px solid #b2b2b2;
+  color: white;
+  padding: 0.4em 1.2em;
+  font-size: 1.05em;
+  cursor: pointer;
+
+}
+
+.btnLogin:hover {
+  background: #808080;
+  border: 2px solid #808080;
+}
+
+.loginStatus{
+  display: block;
+  width: 300px;
+  margin: 5px auto;
+  color: #f2506e;
+}
