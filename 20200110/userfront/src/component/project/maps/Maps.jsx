@@ -66,7 +66,7 @@ class Maps extends React.Component {
     const script = document.createElement("script");
     script.async = true;
     script.src =
-      "https://dapi.kakao.com/v2/maps/sdk.js?appkey=cf322787f4669732502374b0e6ffc647&autoload=false&libraries=services,clusterer,drawing";
+      "https://dapi.kakao.com/v2/maps/sdk.js?appkey=[app key]&autoload=false&libraries=services,clusterer,drawing";
     document.head.appendChild(script);
 
     script.onload = () => {
